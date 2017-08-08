@@ -16,14 +16,14 @@ export default {
   data: [{
     date: '2017-07-02T00:00:00.000',
     payload: {
-      key: 'conde-nast',
+      key: 'conde-nast-intl',
       name: 'Conde Nast',
       fraction: 1
     }
   }, {
     date: '2017-07-04T00:00:00.000',
     payload: {
-      key: 'conde-nast',
+      key: 'conde-nast-intl',
       name: 'Conde Nast',
       fraction: 0.5
     }
@@ -37,14 +37,14 @@ export default {
   }, {
     date: '2017-07-06T00:00:00.000',
     payload: {
-      key: 'conde-nast',
+      key: 'conde-nast-intl',
       name: 'Conde Nast',
       fraction: 1
     }
   }, {
     date: '2017-08-04T00:00:00.000',
     payload: {
-      key: 'conde-nast',
+      key: 'conde-nast-intl',
       name: 'Conde Nast',
       details: 'Tugboat Migration Project',
       fraction: 1
@@ -52,7 +52,7 @@ export default {
   }, {
     date: '2017-08-05T00:00:00.000',
     payload: {
-      key: 'conde-nast',
+      key: 'conde-nast-intl',
       name: 'Conde Nast',
       fraction: 1
     }

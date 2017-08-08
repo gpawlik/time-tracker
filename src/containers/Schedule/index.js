@@ -6,7 +6,7 @@ import { Actions } from 'react-native-router-flux';
 
 import { fetch, updateScheduleDate } from './actions';
 import {
-  selectSchedule,
+  selectCalendar,
   selectCurrentSchedule,
   selectIsLoading,
   selectIsFetched
@@ -14,7 +14,6 @@ import {
 
 import Header from '../../components/Header';
 import Preloader from '../../components/Preloader';
-import Button from '../../components/Button';
 import UnitBar from '../../components/Unit/Bar';
 import MainUnit from '../../components/Unit/Main';
 
@@ -34,9 +33,7 @@ class Schedule extends React.Component {
   }
 
   render() {
-    const { schedule, isLoading, currentSchedule } = this.props;
-
-    console.log(currentSchedule, 'CSSSSSSSS');
+    const { calendar, isLoading, currentSchedule } = this.props;
 
     return (
       <View>
@@ -44,7 +41,7 @@ class Schedule extends React.Component {
         {isLoading && <Preloader />}
         <UnitBar
           items={5}
-          data={schedule}
+          calendar={calendar}
           onSelect={this._handleDateChange}
         />
         <MainUnit
@@ -58,7 +55,7 @@ class Schedule extends React.Component {
 
 function mapStateToProps() {
   return createStructuredSelector({
-    schedule: selectSchedule(),
+    calendar: selectCalendar(),
     currentSchedule: selectCurrentSchedule(),
     isLoading: selectIsLoading(),
     isFetched: selectIsFetched()

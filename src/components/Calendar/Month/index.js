@@ -37,11 +37,11 @@ export default ({ month = {}, monthIndex }) => {
   return (
     <View style={s.container}>
       <Text style={s.label}>{monthName} [expand]</Text>
-      {
-        Object.keys(dataItems).map((dataKey, index) => {
+      <View>
+        {Object.keys(dataItems).map((dataKey, index) => {
           return <ReportItem name={dataKey} days={dataItems[dataKey]} key={index} />;
-        })
-      }
+        })}
+      </View>
       <Text style={s.summary}>Month summary: {monthSummary}</Text>
     </View>
   );

@@ -3,8 +3,7 @@ import { ScrollView } from 'react-native';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 
-import { selectSchedule } from 'containers/Schedule/selectors';
-import { generateCalendar, fillCalendar } from './../../../helpers/calendar';
+import { selectCalendar } from 'containers/Schedule/selectors';
 
 import Calendar from 'components/Calendar';
 
@@ -13,12 +12,15 @@ class HistoryList extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.refs.scrollView.scrollTo({ y: 2000 });
+  }
+
   render() {
-    const { schedule } = this.props;
-    const calendar = fillCalendar(generateCalendar(), schedule).toJS();
+    const { calendar } = this.props;
 
     return (
-      <ScrollView>
+      <ScrollView ref="scrollView">
         <Calendar data={calendar} />
       </ScrollView>
     );
@@ -27,7 +29,7 @@ class HistoryList extends React.Component {
 
 function mapStateToProps() {
   return createStructuredSelector({
-    schedule: selectSchedule()
+    calendar: selectCalendar()
   });
 }
 

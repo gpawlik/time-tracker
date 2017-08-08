@@ -2,12 +2,9 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
+    backgroundColor: 'white'
   },
   label: {
-    backgroundColor: '#aaa',
-    padding: 15
-  },
-  summary: {
     backgroundColor: '#dedede',
     padding: 15
   }

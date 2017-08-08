@@ -23,11 +23,9 @@ export default ({ data }) => {
 
   return (
     <View>
-      {
-        Object.keys(weeks).map(key => {
-          return <Week days={weeks[key]} weekIndex={key} key={key} />;
-        })
-      }
+      {Object.keys(weeks).map(key => {
+        return <Week days={weeks[key]} weekIndex={key} key={key} />;
+      })}
     </View>
   );
 };

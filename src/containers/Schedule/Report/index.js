@@ -3,8 +3,7 @@ import { ScrollView } from 'react-native';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 
-import { selectSchedule } from 'containers/Schedule/selectors';
-import { generateCalendar, fillCalendar } from './../../../helpers/calendar';
+import { selectCalendar } from 'containers/Schedule/selectors';
 
 import Month from 'components/Calendar/Month';
 
@@ -14,25 +13,20 @@ class Report extends React.Component {
   }
 
   render() {
-    const { schedule } = this.props;
-    const calendar = fillCalendar(generateCalendar(), schedule).toJS();
+    const { calendar } = this.props;
 
     return (
       <ScrollView>
-        {
-          Object.keys(calendar['2017']).map(key => {
-            return <Month month={calendar['2017'][key]} monthIndex={key} key={key} />;
-          })
-        }
+        {Object.keys(calendar['2017']).map(key => {
+          return <Month month={calendar['2017'][key]} monthIndex={key} key={key} />;
+        })}
       </ScrollView>
     );
   }
 }
 
-function mapStateToProps() {
-  return createStructuredSelector({
-    schedule: selectSchedule()
-  });
-}
+const mapStateToProps = createStructuredSelector({
+  calendar: selectCalendar()
+});
 
 export default connect(mapStateToProps, {})(Report);

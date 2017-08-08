@@ -1,5 +1,8 @@
 export default {
   clients: [{
+    label: 'Cambridge University',
+    value: 'cambridge'
+  }, {
     label: 'Condé Nast International',
     value: 'conde-nast-intl'
   }, {

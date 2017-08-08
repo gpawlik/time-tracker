@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { generateCalendar, fillCalendar } from 'helpers/calendar';
 
 const getScheduleDomain = () => state => state.get('scheduleDomain');
 
@@ -17,6 +18,11 @@ const selectCurrentSchedule = () => createSelector(
   scheduleState => scheduleState.get('currentSchedule').toJS()
 );
 
+const selectCalendar = () => createSelector(
+  getScheduleDomain(),
+  scheduleState => fillCalendar(generateCalendar(), scheduleState.get('schedule').toJS()).toJS()
+);
+
 const selectIsLoading = () => createSelector(
   getScheduleDomain(),
   scheduleState => scheduleState.get('isLoading')
@@ -31,6 +37,7 @@ export {
   selectSchedule,
   selectCurrentScheduleDate,
   selectCurrentSchedule,
+  selectCalendar,
   selectIsLoading,
   selectIsFetched
 };

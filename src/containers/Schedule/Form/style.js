@@ -9,15 +9,21 @@ export default StyleSheet.create({
   },
   section: {
     borderTopColor: '#dedede',
-    borderTopWidth: 1
+    borderTopWidth: StyleSheet.hairlineWidth
+  },
+  textInputLabel: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#aaa',
+    paddingLeft: 15,
+    paddingTop: 15
   },
   textInput: {
     margin: 15,
-    paddingTop: 12,
-    paddingBottom: 12,
-    paddingRight: 10,
-    paddingLeft: 10,
-    height: 80,
+    marginTop: 5,
+    padding: 10,
+    paddingTop: 10,
+    height: 62,
     borderColor: '#dedede',
     borderWidth: 1,
     borderRadius: 4,
