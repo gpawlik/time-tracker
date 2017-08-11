@@ -28,7 +28,6 @@ export default ({ month = {}, monthIndex }) => {
       return memo;
     }, {});
   };
-  const monthName = moment(monthIndex, 'MM').format('MMMM');
   const dataItems = getReport(month);
   const monthSummary = Object.keys(dataItems).reduce((memo, key) => {
     return memo += dataItems[key];
@@ -36,13 +35,16 @@ export default ({ month = {}, monthIndex }) => {
 
   return (
     <View style={s.container}>
-      <Text style={s.label}>{monthName} [expand]</Text>
-      <View>
+      <View style={s.dataBox}>
+        <View style={s.labelBox}>
+          <Text style={s.label}>{'Client'.toUpperCase()}</Text>
+          <Text style={s.label}>{'Days'.toUpperCase()}</Text>
+        </View>
         {Object.keys(dataItems).map((dataKey, index) => {
           return <ReportItem name={dataKey} days={dataItems[dataKey]} key={index} />;
         })}
       </View>
-      <Text style={s.summary}>Month summary: {monthSummary}</Text>
+      <Text style={s.summary}>{'Total'.toUpperCase()}: {monthSummary}</Text>
     </View>
   );
 };

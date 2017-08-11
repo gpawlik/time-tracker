@@ -7,7 +7,7 @@ export default ({ name, days }) => {
   return (
     <View style={s.item}>
       <Text style={s.name}>{name}</Text>
-      <Text style={s.fraction}>{days} days</Text>
+      <Text style={s.days}>{days}</Text>
     </View>
   );
 };

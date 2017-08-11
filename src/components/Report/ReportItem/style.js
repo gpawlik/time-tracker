@@ -2,7 +2,8 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   item: {
-    padding: 10,
+    paddingTop: 8,
+    paddingBottom: 8,
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
@@ -10,7 +11,7 @@ export default StyleSheet.create({
     fontWeight: '300',
     fontSize: 14
   },
-  value: {
+  days: {
     fontWeight: '600',
     fontSize: 14
   }

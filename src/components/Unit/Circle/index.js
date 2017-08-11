@@ -1,14 +1,25 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import Icon from 'components/Icons';
+import { Warning } from 'components/Icons';
 
 import s from './style';
 
-export default ({ isActive, isWarning }) => {
+export default ({ type }) => {
+  let circleStyle;
+
+  switch (type) {
+    case 'active':
+      circleStyle = s.circleActive;
+      break;
+    case 'warning':
+      circleStyle = s.circleWarning;
+      break;
+    default:
+      circleStyle = s.circleInActive;
+  }
   return (
-    <View style={isActive ? s.circleActive : s.circleInActive}>
-      {isWarning && <Icon.Warning style={{marginTop: -5}} />}
+    <View style={circleStyle}>
     </View>
   );
 };

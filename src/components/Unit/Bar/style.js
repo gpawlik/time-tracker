@@ -2,10 +2,12 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   bar: {
-    height: 95,
-    backgroundColor: '#dedede',
-    padding: 10,
+    height: 80,
+    backgroundColor: '#fafafa',
+    padding: 20,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    borderBottomWidth: 1,
+    borderBottomColor: '#dedede'
   }
 });

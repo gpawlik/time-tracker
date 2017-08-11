@@ -1,22 +1,23 @@
 import { StyleSheet } from 'react-native';
 
 const basicUnit = {
-  borderRadius: 300,
-  width: 300,
-  height: 300,
+  borderRadius: 280,
+  width: 280,
+  height: 280,
   alignItems: 'center',
   alignSelf: 'center',
   justifyContent: 'center',
   margin: 20,
-  borderWidth: 10
+  padding: 20,
+  borderWidth: 3
 };
 const activeUnit = {
-  borderColor: '#27ae60',
-  backgroundColor: '#2ecc71'
+  borderColor: '#2ecc71',
+  backgroundColor: '#fafafa'
 };
 const inActiveUnit = {
-  borderColor: '#7f8c8d',
-  backgroundColor: '#95a5a6'
+  borderColor: '#eee',
+  backgroundColor: '#fff'
 };
 
 export default StyleSheet.create({
@@ -29,14 +30,15 @@ export default StyleSheet.create({
     ...inActiveUnit
   },
   date: {
-    color: 'white',
+    color: '#333',
     fontWeight: '600',
     fontSize: 25,
     textAlign: 'center'
   },
   client: {
-    color: 'white',
+    color: '#333',
     fontWeight: '600',
+    fontFamily: 'Dosis',
     fontSize: 30,
     textAlign: 'center'
   }

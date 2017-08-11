@@ -13,7 +13,7 @@ class HistoryList extends React.Component {
   }
 
   componentDidMount() {
-    this.refs.scrollView.scrollTo({ y: 2000 });
+    this.refs.scrollView.scrollTo({ y: 1800 });
   }
 
   render() {

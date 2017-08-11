@@ -7,6 +7,7 @@
 		"test": "jest"
 	},
 	"dependencies": {
+		"d3": "^4.10.0",
 		"immutable": "^3.8.1",
 		"moment": "^2.18.1",
 		"moment-calendar": "^0.0.4",
@@ -37,7 +38,9 @@
 		"remote-redux-devtools-on-debugger": "^0.8.2"
 	},
 	"rnpm": {
-  	"assets": ["./src/assets/fonts"]
+		"assets": [
+			"./src/assets/fonts"
+		]
 	},
 	"jest": {
 		"preset": "react-native"

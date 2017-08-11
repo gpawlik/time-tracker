@@ -22,7 +22,10 @@ const getSceneStyle = () => ({
 });
 
 const styles = {
-
+  tabBarStyle: {
+    height: 65,
+    backgroundColor: '#fff'
+  }
 };
 
 //TODO: move Scenes to a separate file
@@ -39,16 +42,16 @@ class timeTracker extends Component {
                 showLabel={false}
                 tabs
                 tabBarStyle={styles.tabBarStyle}
-                activeBackgroundColor="#ddd"
+                activeTintColor="red"
               >
                 <Scene
                   key="tab1"
                   title="Home"
                   tabBarLabel="TAB #1"
+                  iconType="home"
                   icon={TabIcon}
                   navigationBarStyle={{backgroundColor: 'red'}}
                   titleStyle={{color: 'white', alignSelf: 'center'}}
-                  initial
                 >
                   <Scene
                     key="tab1_1"
@@ -65,8 +68,8 @@ class timeTracker extends Component {
                     rightTitle="Save"
                   />
                 </Scene>
-                <Scene key="tab2" component={List} title="History" icon={TabIcon} />
-                <Scene key="tab3" component={Report} title="Report" icon={TabIcon}/>
+                <Scene key="tab2" component={List} title="History" iconType="calendar" icon={TabIcon} />
+                <Scene key="tab3" component={Report} title="Report" iconType="report" icon={TabIcon} initial />
               </Scene>
             </Scene>
           </Scene>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
@@ -11,8 +11,11 @@ import {
   selectIsLoading,
   selectIsFetched
 } from './selectors';
+import { formatDate } from 'helpers/date';
 
-import Header from '../../components/Header';
+import Header from 'components/Header';
+import PercentageCircle from 'components/Countdown';
+import NavigationBar from 'components/NavigationBar';
 import Preloader from '../../components/Preloader';
 import UnitBar from '../../components/Unit/Bar';
 import MainUnit from '../../components/Unit/Main';
@@ -36,14 +39,15 @@ class Schedule extends React.Component {
     const { calendar, isLoading, currentSchedule } = this.props;
 
     return (
-      <View>
-        <Header>What did you do today?</Header>
+      <View style={{ marginTop: 74 }}>
         {isLoading && <Preloader />}
         <UnitBar
-          items={5}
+          items={7}
           calendar={calendar}
           onSelect={this._handleDateChange}
         />
+        <Header>{formatDate(currentSchedule[0].date, 'dddd, MMMM D, YYYY')}</Header>
+        <PercentageCircle seconds={10} radius={20} />
         <MainUnit
           data={currentSchedule}
           onPress={() => Actions.tab1_2()}
@@ -72,5 +76,11 @@ function mapDispatchToProps(dispatch) {
     }
   };
 }
+
+Schedule.navBar = () => {
+  return (
+    <NavigationBar hasMenuButton />
+  );
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Schedule);

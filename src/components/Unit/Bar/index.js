@@ -6,7 +6,7 @@ import UnitItem from './../Item';
 
 import s from './style';
 
-export default ({ calendar, items = 4, onSelect }) => {
+export default ({ calendar, items = 7, onSelect }) => {
   return (
     <View style={s.bar}>
       {Array(items).fill(1).map((item, key) => {

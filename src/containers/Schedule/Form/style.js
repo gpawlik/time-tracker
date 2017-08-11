@@ -2,9 +2,10 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   header: {
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: 30,
+    fontWeight: '100',
     textAlign: 'center',
+    fontFamily: 'Quicksand',
     margin: 10
   },
   section: {

@@ -11,7 +11,7 @@ class WeekItem extends Component {
 
     this.state = {
       isOpen: true,
-      itemHeight: new Animated.Value(270)
+      itemHeight: new Animated.Value(490)
     };
 
     this._handleToggle = this._handleToggle.bind(this);
@@ -27,7 +27,7 @@ class WeekItem extends Component {
     Animated.timing(
       itemHeight,
       {
-        toValue: isOpen ? 0 : 270,
+        toValue: isOpen ? 0 : 490,
         duration: 2000
       }
     ).start();
@@ -40,7 +40,7 @@ class WeekItem extends Component {
     return (
       <View style={s.container}>
         <TouchableHighlight onPress={this._handleToggle} style={s.label}>
-          <Text>Week: {weekIndex}</Text>
+          <Text style={s.labelText}>Week {weekIndex}</Text>
         </TouchableHighlight>
         <Animated.View style={{ height: itemHeight }}>
           {Object.keys(days).map(key => {

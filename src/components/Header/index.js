@@ -5,8 +5,11 @@ const s = StyleSheet.create({
   header: {
     fontSize: 22,
     fontWeight: '600',
+    fontFamily: 'Dosis',
     textAlign: 'center',
-    margin: 20
+    margin: 20,
+    marginTop: 25,
+    color: '#333'
   }
 });
 

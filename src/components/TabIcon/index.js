@@ -1,20 +1,39 @@
 import React from 'react';
-import { Text } from 'react-native';
 import PropTypes from 'prop-types';
+import { Text, View } from 'react-native';
+import { HomeIcon, CalendarIcon, ReportIcon } from 'components/Icons';
 
-const propTypes = {
-  selected: PropTypes.bool,
-  title: PropTypes.string
-};
+import s from './style';
 
-const TabIcon = props => {
+const TabIcon = ({ iconType, title, tintColor }) => {
+  const isActive = tintColor === 'red';
+  const iconStyle = isActive ? s.iconSelected : s.icon;
+  let Handler;
+
+  switch(iconType) {
+    case 'home':
+      Handler = HomeIcon;
+      break;
+    case 'calendar':
+      Handler = CalendarIcon;
+      break;
+    case 'report':
+    default:
+      Handler = ReportIcon;
+  }
+
   return (
-    <Text style={{color: props.focused ? 'red' : 'black'}}>
-      {props.title}
-    </Text>
+    <View style={s.container}>
+      <Handler isActive={isActive} />
+      <Text style={iconStyle}>{title}</Text>
+    </View>
   );
 };
 
-TabIcon.propTypes = propTypes;
+TabIcon.propTypes = {
+  iconType: PropTypes.string,
+  title: PropTypes.string,
+  selected: PropTypes.bool
+};
 
 export default TabIcon;

@@ -1,18 +1,28 @@
 import { StyleSheet } from 'react-native';
 
+const baseDate = {
+  marginTop: 5,
+  color: '#333',
+  fontWeight: '600',
+  fontSize: 12,
+  textAlign: 'center'
+};
+
 export default StyleSheet.create({
-  meta: {
-    alignItems: 'center'
+  unit: {
+    alignItems: 'center',
+    width: 50
   },
-  label: {
-    color: '#333',
-    fontWeight: '300',
-    fontSize: 10
+  activeDate: {
+    ...baseDate,
+    color: '#2ecc71'
   },
-  data: {
-    color: '#333',
-    fontWeight: '600',
-    fontSize: 14,
-    textAlign: 'center'
+  inactiveDate: {
+    ...baseDate,
+    color: '#95a5a6'
+  },
+  warningDate: {
+    ...baseDate,
+    color: '#f39c12'
   }
 });

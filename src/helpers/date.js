@@ -11,3 +11,7 @@ export const isSameDay = (dateA, dateB) => {
 export const isFromPast = date => {
   return moment().diff(date) > 0;
 };
+
+export const isWeekDay = date => {
+  return [6, 7].indexOf(moment(date).isoWeekday()) < 0;
+};
