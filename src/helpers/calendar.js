@@ -18,7 +18,7 @@ export const generateWeeklyCalendar = (initialDate = '2017-07-01T00:00:00.000', 
   return calendar;
 };
 
-export const generateCalendar = (initialDate = '2017-03-01T00:00:00.000', endingDate = Date.now()) => {
+export const generateCalendar = (initialDate = '2017-03-05T00:00:00.000', endingDate = Date.now()) => {
   const startWeek = moment(initialDate).week();
   const endWeek = moment(endingDate).add(1, 'week').week();
   const days = [];

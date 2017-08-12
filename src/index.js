@@ -8,7 +8,7 @@ import { saveCurrentSchedule } from 'containers/Schedule/actions';
 //import scenes from './scenes';
 
 import TabIcon from 'components/TabIcon';
-import Schedule from 'containers/Schedule';
+import Home from 'containers/Schedule/Home';
 import List from 'containers/Schedule/List';
 import Form from 'containers/Schedule/Form';
 import Report from 'containers/Schedule/Report';
@@ -45,7 +45,7 @@ class timeTracker extends Component {
                 tabBarStyle={styles.tabBarStyle}
                 activeTintColor="red"
               >
-                <Scene key="tab1" component={Schedule} title="Home" iconType="home" icon={TabIcon} />
+                <Scene key="tab1" component={Home} title="Home" iconType="home" icon={TabIcon} />
                 <Scene key="tab2" component={List} title="History" iconType="calendar" icon={TabIcon} />
                 <Scene key="tab3" component={Report} title="Report" iconType="report" icon={TabIcon} initial />
               </Scene>

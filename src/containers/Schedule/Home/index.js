@@ -4,13 +4,13 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
-import { fetch, updateScheduleDate } from './actions';
+import { fetch, updateScheduleDate } from 'containers/Schedule/actions';
 import {
   selectCalendar,
   selectCurrentSchedule,
   selectIsLoading,
   selectIsFetched
-} from './selectors';
+} from 'containers/Schedule/selectors';
 import { formatDate } from 'helpers/date';
 
 import Header from 'components/Header';

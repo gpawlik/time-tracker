@@ -45,5 +45,5 @@ const getMock = days => {
 };
 
 export default {
-  data: getMock(166)
+  data: getMock(161)
 };

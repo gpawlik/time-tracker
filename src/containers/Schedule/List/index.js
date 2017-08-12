@@ -28,7 +28,7 @@ class HistoryList extends React.Component {
     const { calendar } = this.props;
 
     return (
-      <ScrollView ref="scrollView">
+      <ScrollView ref="scrollView" style={{ marginTop: 74 }}>
         <Calendar data={calendar} onSelect={this._handleItemSelect} />
       </ScrollView>
     );
