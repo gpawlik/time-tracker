@@ -15,11 +15,11 @@ export default StyleSheet.create({
     fontWeight: '600',
     color: '#aaa',
     paddingLeft: 15,
-    paddingTop: 5
+    paddingTop: 9
   },
   textInput: {
     margin: 15,
-    marginTop: 5,
+    marginTop: 8,
     padding: 10,
     paddingTop: 10,
     height: 76,

@@ -34,7 +34,7 @@ class WeekItem extends Component {
   }
 
   render() {
-    const { days = {}, weekIndex } = this.props;
+    const { days = {}, weekIndex, onSelect } = this.props;
     const { itemHeight } = this.state;
 
     return (
@@ -44,7 +44,7 @@ class WeekItem extends Component {
         </TouchableHighlight>
         <Animated.View style={{ height: itemHeight }}>
           {Object.keys(days).map(key => {
-            return <Item data={days[key]} key={key} />;
+            return <Item data={days[key]} onSelect={onSelect} key={key} />;
           })}
         </Animated.View>
       </View>

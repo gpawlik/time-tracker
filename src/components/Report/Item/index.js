@@ -24,6 +24,9 @@ export default class Item extends Component {
 
   _handleToggleEdit() {
     const { isEditing, itemPositionLeft, itemPositionRight } = this.state;
+    const { data, onSelect } = this.props;
+
+    onSelect(data.moment);
 
     this.setState({
       isEditing: !isEditing
@@ -50,7 +53,7 @@ export default class Item extends Component {
 
   _handleEdit() {
     this._handleToggleEdit();
-    Actions.tab1_2();
+    Actions.scheduleForm();
   }
 
   render() {

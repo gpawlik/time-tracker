@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
@@ -45,10 +45,10 @@ class Schedule extends React.Component {
           calendar={calendar}
           onSelect={this._handleDateChange}
         />
-        <Header>{formatDate(currentSchedule[0].date, 'dddd, MMMM D, YYYY')}</Header>
+        <Header>{formatDate(currentSchedule.date, 'dddd, MMMM D, YYYY')}</Header>
         <MainUnit
           data={currentSchedule}
-          onPress={() => Actions.tab1_2()}
+          onPress={() => Actions.scheduleForm()}
         />
       </View>
     );

@@ -18,13 +18,13 @@ const ignoreMonths = yearData => {
   }, weekObject);
 };
 
-export default ({ data }) => {
+export default ({ data, onSelect }) => {
   const weeks = ignoreMonths(data['2017']);
 
   return (
     <View>
       {Object.keys(weeks).map(key => {
-        return <Week days={weeks[key]} weekIndex={key} key={key} />;
+        return <Week days={weeks[key]} weekIndex={key} onSelect={onSelect} key={key} />;
       })}
     </View>
   );

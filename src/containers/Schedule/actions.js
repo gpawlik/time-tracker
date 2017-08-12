@@ -20,10 +20,16 @@ export const fetchError = error => {
   };
 };
 
-export const updateSchedule = data => {
+export const setCurrentSchedule = data => {
   return {
-    type: at.SCHEDULE_UPDATE,
+    type: at.SCHEDULE_SET_CURRENT,
     payload: data
+  };
+};
+
+export const saveCurrentSchedule = () => {
+  return {
+    type: at.SCHEDULE_SAVE_CURRENT
   };
 };
 

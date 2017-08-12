@@ -4,6 +4,7 @@ import { AppRegistry } from 'react-native';
 import { Actions, Router, Modal, Scene } from 'react-native-router-flux';
 
 import store from './store';
+import { saveCurrentSchedule } from 'containers/Schedule/actions';
 //import scenes from './scenes';
 
 import TabIcon from 'components/TabIcon';
@@ -37,39 +38,28 @@ class timeTracker extends Component {
           <Scene overlay>
             <Scene key="modal" component={Modal} hideNavBar initial>
               <Scene
+                tabs
                 key="tabbar"
                 gestureEnabled={false}
                 showLabel={false}
-                tabs
                 tabBarStyle={styles.tabBarStyle}
                 activeTintColor="red"
               >
-                <Scene
-                  key="tab1"
-                  title="Home"
-                  tabBarLabel="TAB #1"
-                  iconType="home"
-                  icon={TabIcon}
-                  navigationBarStyle={{backgroundColor: 'red'}}
-                  titleStyle={{color: 'white', alignSelf: 'center'}}
-                >
-                  <Scene
-                    key="tab1_1"
-                    component={Schedule}
-                    title="Tab #1_1"
-
-                  />
-                  <Scene
-                    key="tab1_2"
-                    component={Form}
-                    title="Tab #1_2"
-                    onRight={() => Actions.pop()}
-                    initial
-                  />
-                </Scene>
+                <Scene key="tab1" component={Schedule} title="Home" iconType="home" icon={TabIcon} initial />
                 <Scene key="tab2" component={List} title="History" iconType="calendar" icon={TabIcon} />
                 <Scene key="tab3" component={Report} title="Report" iconType="report" icon={TabIcon} />
               </Scene>
+              <Scene
+                hideNavBar={false}
+                key="scheduleForm"
+                component={Form}
+                title="Schedule Form"
+                onRight={() => Actions.pop()}
+                onSave={() => {
+                  store.dispatch(saveCurrentSchedule());
+                  Actions.pop();
+                }}
+              />
             </Scene>
           </Scene>
         </Router>

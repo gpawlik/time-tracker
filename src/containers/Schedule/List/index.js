@@ -4,6 +4,7 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 
 import { selectCalendar } from 'containers/Schedule/selectors';
+import { updateScheduleDate } from 'containers/Schedule/actions';
 
 import NavigationBar from 'components/NavigationBar';
 import Calendar from 'components/Calendar';
@@ -11,10 +12,16 @@ import Calendar from 'components/Calendar';
 class HistoryList extends React.Component {
   constructor(props) {
     super(props);
+
+    this._handleItemSelect = this._handleItemSelect.bind(this);
   }
 
   componentDidMount() {
     this.refs.scrollView.scrollTo({ y: 1800 });
+  }
+
+  _handleItemSelect(date) {
+    this.props.onScheduleDateUpdate(date);
   }
 
   render() {
@@ -22,7 +29,7 @@ class HistoryList extends React.Component {
 
     return (
       <ScrollView ref="scrollView">
-        <Calendar data={calendar} />
+        <Calendar data={calendar} onSelect={this._handleItemSelect} />
       </ScrollView>
     );
   }
@@ -42,4 +49,12 @@ function mapStateToProps() {
   });
 }
 
-export default connect(mapStateToProps, {})(HistoryList);
+function mapDispatchToProps(dispatch) {
+  return {
+    onScheduleDateUpdate: date => {
+      dispatch(updateScheduleDate(date));
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HistoryList);

@@ -2,14 +2,13 @@ import React from 'react';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { Text, TextInput, View } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 
 import Select from 'components/Form/Select';
 import RecentPick from 'components/Form/RecentPick';
 import NavigationBar from 'components/NavigationBar';
 
 import { selectCurrentScheduleDate, selectCurrentSchedule } from 'containers/Schedule/selectors';
-import { updateSchedule } from './../actions';
+import { setCurrentSchedule } from './../actions';
 import config from 'config/clients';
 import { recent } from './../mock';
 
@@ -19,20 +18,28 @@ class ScheduleForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      key: this.props.currentSchedule[0] && this.props.currentSchedule[0].payload ? this.props.currentSchedule[0].payload.key : '',
-      name: this.props.currentSchedule[0] && this.props.currentSchedule[0].payload ? this.props.currentSchedule[0].payload.name : '',
-      details: this.props.currentSchedule[0] && this.props.currentSchedule[0].payload ? this.props.currentSchedule[0].payload.details : ''
-    };
-
     this._handleSelect = this._handleSelect.bind(this);
     this._handlePick = this._handlePick.bind(this);
     this._handleTextChange = this._handleTextChange.bind(this);
-    this._handleSave = this._handleSave.bind(this);
+    this._handleSetSchedule = this._handleSetSchedule.bind(this);
+  }
+
+  _handleSetSchedule({ key, name, details }) {
+    const { onSetSchedule, currentSchedule, currentScheduleDate } = this.props;
+
+    onSetSchedule({
+      date: currentScheduleDate,
+      payload: {
+        key: key || currentSchedule.payload.key,
+        name: name || currentSchedule.payload.name,
+        details: details || currentSchedule.payload.details,
+        fraction: 1
+      }
+    });
   }
 
   _handlePick({ key, name, details }) {
-    this.setState({
+    this._handleSetSchedule({
       key,
       name,
       details
@@ -40,37 +47,20 @@ class ScheduleForm extends React.Component {
   }
 
   _handleSelect(itemValue, itemPosition) {
-    this.setState({
+    this._handleSetSchedule({
       key: itemValue,
       name: config.clients[itemPosition].label
     });
   }
 
   _handleTextChange(text) {
-    this.setState({
+    this._handleSetSchedule({
       details: text
     });
   }
 
-  _handleSave() {
-    const { onUpdateSchedule, currentScheduleDate } = this.props;
-    const { key, name, details } = this.state;
-
-    Actions.pop();
-
-    onUpdateSchedule({
-      date: currentScheduleDate,
-      payload: {
-        key,
-        name,
-        details,
-        fraction: 1
-      }
-    });
-  }
-
   render() {
-    const { key, details } = this.state;
+    const { key, details } = this.props.currentSchedule.payload;
 
     return (
       <View style={s.view}>
@@ -102,7 +92,7 @@ ScheduleForm.navBar = props => {
       hasBackButton
       hasSaveButton
       onBack={props.onRight}
-      onSave={props.onRight}
+      onSave={props.onSave}
     />
   );
 };
@@ -116,8 +106,8 @@ function mapStateToProps() {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onUpdateSchedule: data => {
-      dispatch(updateSchedule(data));
+    onSetSchedule: data => {
+      dispatch(setCurrentSchedule(data));
     }
   };
 }

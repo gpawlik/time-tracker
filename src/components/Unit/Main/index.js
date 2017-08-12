@@ -4,8 +4,8 @@ import { Text, TouchableHighlight, View, StyleSheet } from 'react-native';
 import { formatDate } from 'helpers/date';
 import s from './style';
 
-export default ({ data = [], onPress }) => {
-  const unitStyle = data[0].hasOwnProperty('payload') ? s.unitActive : s.unitInActive;
+export default ({ data = { payload: {} }, onPress }) => {
+  const unitStyle = data.payload.name ? s.unitActive : s.unitInActive;
 
   return (
     <TouchableHighlight
@@ -13,14 +13,8 @@ export default ({ data = [], onPress }) => {
       onPress={onPress}
       underlayColor={StyleSheet.flatten(unitStyle).backgroundColor}>
       <View>
-        <Text style={s.date}>{formatDate(data[0].date)}</Text>
-        {data.map((item, key) => {
-          if(item.hasOwnProperty('payload')) {
-            return (
-              <Text style={s.client} key={key}>{item.payload.name}</Text>
-            );
-          }
-        })}
+        <Text style={s.date}>{formatDate(data.date)}</Text>
+        <Text style={s.client}>{data.payload.name}</Text>
       </View>
     </TouchableHighlight>
   );

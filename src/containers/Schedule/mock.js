@@ -7,6 +7,10 @@ export const recent = [{
   name: 'McKinsey Co.',
   details: 'Wave Project'
 }, {
+  key: 'netflix',
+  name: 'Netflix',
+  details: 'Netflix Halloween Doorbell'
+}, {
   key: 'tesla-intl',
   name: 'Tesla International',
   details: 'Solar Roof Project'
