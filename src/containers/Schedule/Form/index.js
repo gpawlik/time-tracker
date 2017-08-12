@@ -70,7 +70,7 @@ class ScheduleForm extends React.Component {
           options={config.clients}>
         </Select>
         <View style={s.section}>
-          <Text style={s.textInputLabel}>{'Project details (optional)'.toUpperCase()}</Text>
+          <Text style={s.textInputLabel}>{'Project details (optional)'.toUpperCase()} {Math.random()}</Text>
           <TextInput
             style={s.textInput}
             onChangeText={this._handleTextChange}

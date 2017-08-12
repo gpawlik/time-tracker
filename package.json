@@ -9,6 +9,7 @@
 	"dependencies": {
 		"d3": "^4.10.0",
 		"immutable": "^3.8.1",
+		"lodash": "^4.17.4",
 		"moment": "^2.18.1",
 		"moment-calendar": "^0.0.4",
 		"prop-types": "^15.5.10",

@@ -13,7 +13,7 @@ export default ({ values = [], onSelect }) => {
         return (
           <TouchableOpacity style={s.item} activeOpacity={0.65} onPress={() => onSelect(item)} key={key}>
             <View style={s.itemBox}>
-              <AvatarIcon />
+              <AvatarIcon token={item.name} />
               <View style={s.infoBox}>
                 <Text style={s.name}>{item.name}</Text>
                 <Text style={s.details}>{item.details}</Text>

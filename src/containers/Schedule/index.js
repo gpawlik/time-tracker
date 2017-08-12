@@ -15,9 +15,10 @@ import { formatDate } from 'helpers/date';
 
 import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
-import Preloader from '../../components/Preloader';
-import UnitBar from '../../components/Unit/Bar';
-import MainUnit from '../../components/Unit/Main';
+import Preloader from 'components/Preloader';
+import UnitBar from 'components/Unit/Bar';
+import MainUnit from 'components/Unit/Main';
+import MessageBox from 'components/MessageBox';
 
 class Schedule extends React.Component {
   constructor(props) {
@@ -35,7 +36,10 @@ class Schedule extends React.Component {
   }
 
   render() {
+    let isValid = false;
     const { calendar, isLoading, currentSchedule } = this.props;
+    const messageText = isValid ? 'Great! Your schedule is up to date!' : 'It looks like you missed to report something!';
+    const status = isValid ? 'valid' : 'invalid';
 
     return (
       <View style={{ marginTop: 74 }}>
@@ -50,6 +54,7 @@ class Schedule extends React.Component {
           data={currentSchedule}
           onPress={() => Actions.scheduleForm()}
         />
+        <MessageBox text={messageText} status={status} />
       </View>
     );
   }

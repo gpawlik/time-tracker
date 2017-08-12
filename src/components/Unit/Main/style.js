@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import { WHITE, DARK_GREEN, LIGHT_GREEN, LIGHT_GRAY, DARK_GRAY } from 'config/colors';
+
 const basicUnit = {
   borderRadius: 280,
   width: 280,
@@ -9,15 +11,15 @@ const basicUnit = {
   justifyContent: 'center',
   margin: 20,
   padding: 20,
-  borderWidth: 3
+  borderWidth: 8
 };
 const activeUnit = {
-  borderColor: '#2ecc71',
-  backgroundColor: '#fafafa'
+  borderColor: DARK_GREEN,
+  backgroundColor: WHITE
 };
 const inActiveUnit = {
-  borderColor: '#eee',
-  backgroundColor: '#fff'
+  borderColor: LIGHT_GRAY,
+  backgroundColor: WHITE
 };
 
 export default StyleSheet.create({
@@ -29,17 +31,50 @@ export default StyleSheet.create({
     ...basicUnit,
     ...inActiveUnit
   },
-  date: {
-    color: '#333',
-    fontWeight: '600',
-    fontSize: 25,
-    textAlign: 'center'
+  textBox: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 200
   },
-  client: {
+  name: {
     color: '#333',
     fontWeight: '600',
     fontFamily: 'Dosis',
     fontSize: 30,
+    lineHeight: 30,
+    alignSelf: 'stretch',
     textAlign: 'center'
+  },
+  details: {
+    color: DARK_GRAY,
+    fontWeight: '300',
+    fontFamily: 'Dosis',
+    fontSize: 20,
+    alignSelf: 'stretch',
+    textAlign: 'center'
+  },
+  emptyBox: {
+    alignItems: 'center',
+    transform: [{ translate: [0, -15] }]
+  },
+  actionText: {
+    color: DARK_GRAY,
+    fontWeight: '600',
+    fontFamily: 'Dosis',
+    fontSize: 20,
+    textAlign: 'center',
+    marginTop: 10
+  },
+  iconBox: {
+    width: 70,
+    height: 70,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    backgroundColor: WHITE,
+    justifyContent: 'center',
+    alignItems: 'center',
+    transform: [{ translate: [65, 55] }]
   }
 });

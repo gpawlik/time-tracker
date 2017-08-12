@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Animated, Easing, Text, TouchableHighlight, View } from 'react-native';
+import { Animated, Text, TouchableOpacity, View } from 'react-native';
 
 import Item from 'components/Report/Item';
 
@@ -17,6 +17,11 @@ class WeekItem extends Component {
     this._handleToggle = this._handleToggle.bind(this);
   }
 
+  /* TODO: update only on any event change
+  shouldComponentUpdate(nextProps) {
+  }
+  */
+
   _handleToggle() {
     const { isOpen, itemHeight } = this.state;
 
@@ -28,7 +33,7 @@ class WeekItem extends Component {
       itemHeight,
       {
         toValue: isOpen ? 0 : 490,
-        duration: 2000
+        duration: 200
       }
     ).start();
   }
@@ -39,9 +44,9 @@ class WeekItem extends Component {
 
     return (
       <View style={s.container}>
-        <TouchableHighlight onPress={this._handleToggle} style={s.label}>
-          <Text style={s.labelText}>Week {weekIndex}</Text>
-        </TouchableHighlight>
+        <TouchableOpacity onPress={this._handleToggle} activeOpacity={0.65} style={s.label}>
+          <Text style={s.labelText}>Week {weekIndex} {Math.random()}</Text>
+        </TouchableOpacity>
         <Animated.View style={{ height: itemHeight }}>
           {Object.keys(days).map(key => {
             return <Item data={days[key]} onSelect={onSelect} key={key} />;

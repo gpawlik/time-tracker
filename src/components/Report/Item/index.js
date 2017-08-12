@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Animated, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { isEqual } from 'lodash';
 
 import Circle from 'components/Unit/Circle';
 import { EditIcon } from 'components/Icons';
@@ -20,6 +21,10 @@ export default class Item extends Component {
 
     this._handleToggleEdit = this._handleToggleEdit.bind(this);
     this._handleEdit = this._handleEdit.bind(this);
+  }
+
+  shouldComponentUpdate(nextProps) {
+    return !isEqual(this.props.data.events, nextProps.data.events);
   }
 
   _handleToggleEdit() {

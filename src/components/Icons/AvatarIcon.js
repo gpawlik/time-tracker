@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Image, View } from 'react-native';
 
-function AvatarIcon({ width, height, style }) {
+function AvatarIcon({ width, height, token = '', style }) {
   const imageStyle = {
     width: width * 4,
     height: height * 4,
     transform: [{
       translate: [
-        -Math.round(Math.random() * 40),
-        -Math.round(Math.random() * 40)
+        -token.length * 2.9,
+        -token.length * 1.2
       ]
     }]
   };

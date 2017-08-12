@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import { View, Dimensions, TouchableWithoutFeedback } from 'react-native'
+import React, { Component } from 'react';
+import { Dimensions, TouchableWithoutFeedback } from 'react-native';
 
 import Svg, {
   G,
@@ -16,17 +16,12 @@ import {
 } from 'd3-scale';
 
 import {
-  max,
   ticks
 } from 'd3-array';
 
 import {
   line
 } from 'd3-shape';
-
-import {
-  path
-} from 'd3-path';
 
 import { LIGHT_GREEN, DARK_GREEN } from 'config/colors';
 
@@ -68,7 +63,7 @@ class BarChart extends Component {
     const screen = Dimensions.get('window');
     const margin = {top: 25, right: 25, bottom: 25, left: 25};
     const width = screen.width - margin.left - margin.right;
-    const height = 210;
+    const height = 190;
     const x = scaleBand()
       .rangeRound([0, width])
       .padding(0.3)

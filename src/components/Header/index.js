@@ -3,13 +3,12 @@ import { Text, StyleSheet } from 'react-native';
 
 const s = StyleSheet.create({
   header: {
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: '600',
     fontFamily: 'Dosis',
     textAlign: 'center',
-    margin: 20,
-    marginTop: 25,
-    color: '#333'
+    marginTop: 15,
+    color: '#ccc'
   }
 });
 
