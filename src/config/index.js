@@ -1,13 +1,13 @@
 export default {
   clients: [{
-    label: 'Cambridge University',
-    value: 'cambridge'
+    label: 'Microsoft',
+    value: 'ms'
   }, {
-    label: 'Condé Nast International',
-    value: 'conde-nast-intl'
+    label: 'Google',
+    value: 'google'
   }, {
-    label: 'McKinsey Co.',
-    value: 'mckinsey-co'
+    label: 'Coca-Cola',
+    value: 'coca-cola'
   }, {
     label: 'Tesla International',
     value: 'tesla-intl'

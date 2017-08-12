@@ -1,34 +1,34 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  header: {
-    fontSize: 30,
-    fontWeight: '100',
-    textAlign: 'center',
-    fontFamily: 'Quicksand',
-    margin: 10
+  view: {
+    marginTop: 58
   },
   section: {
     borderTopColor: '#dedede',
-    borderTopWidth: StyleSheet.hairlineWidth
+    borderTopWidth: StyleSheet.hairlineWidth,
+    backgroundColor: '#fafafa'
   },
   textInputLabel: {
     fontSize: 14,
+    fontFamily: 'Dosis',
     fontWeight: '600',
     color: '#aaa',
     paddingLeft: 15,
-    paddingTop: 15
+    paddingTop: 5
   },
   textInput: {
     margin: 15,
     marginTop: 5,
     padding: 10,
     paddingTop: 10,
-    height: 62,
+    height: 76,
     borderColor: '#dedede',
-    borderWidth: 1,
+    borderWidth: StyleSheet.hairlineWidth,
+    backgroundColor: '#fff',
     borderRadius: 4,
     color: '#333',
-    fontSize: 17
+    fontFamily: 'Dosis',
+    fontSize: 20
   }
 });

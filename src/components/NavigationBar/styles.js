@@ -3,6 +3,15 @@ import {
   StyleSheet
 } from 'react-native';
 
+const navButton = {
+  height: 54,
+  paddingRight: 15,
+  paddingLeft: 15,
+  alignItems: 'center',
+  justifyContent: 'center',
+  alignContent: 'center'
+};
+
 export default StyleSheet.create({
   container: {
     paddingTop: 0,
@@ -43,37 +52,36 @@ export default StyleSheet.create({
     })
   },
   backButton: {
+    ...navButton,
     position: 'absolute',
     ...Platform.select({
       ios: {
-        top: 14
+        top: 0
       },
       android: {
-        top: 24
+        top: 8
       },
       windows: {
-        top: 24
+        top: 8
       }
     }),
-
-    left: 10
+    left: 0
   },
   rightButton: {
+    ...navButton,
     position: 'absolute',
     ...Platform.select({
       ios: {
-        top: 4
+        top: 0
       },
       android: {
-        top: 14
+        top: 8
       },
       windows: {
-        top: 14
+        top: 8
       }
     }),
-    right: 0,
-    height: 37,
-    padding: 8
+    right: 0
   },
   logoBox: {
     flexDirection: 'row',

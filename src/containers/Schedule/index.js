@@ -14,7 +14,6 @@ import {
 import { formatDate } from 'helpers/date';
 
 import Header from 'components/Header';
-import PercentageCircle from 'components/Countdown';
 import NavigationBar from 'components/NavigationBar';
 import Preloader from '../../components/Preloader';
 import UnitBar from '../../components/Unit/Bar';
@@ -47,7 +46,6 @@ class Schedule extends React.Component {
           onSelect={this._handleDateChange}
         />
         <Header>{formatDate(currentSchedule[0].date, 'dddd, MMMM D, YYYY')}</Header>
-        <PercentageCircle seconds={10} radius={20} />
         <MainUnit
           data={currentSchedule}
           onPress={() => Actions.tab1_2()}

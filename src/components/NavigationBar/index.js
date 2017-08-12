@@ -4,10 +4,10 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 import {
-  ChevronIcon,
   CrossIcon,
   Logo,
-  MenuIcon
+  MenuIcon,
+  TickIcon
 } from 'components/Icons';
 import s from './styles';
 
@@ -20,19 +20,24 @@ class NavigationBar extends Component {
     const {
       hasBackButton,
       hasCloseButton,
-      hasActionButton,
+      hasSaveButton,
       hasMenuButton,
-      actionText,
       onClose,
-      onAction,
+      onSave,
       onBack
     } = this.props;
 
+    const logoBox = (
+      <View style={s.logoBox}>
+        <Logo style={s.logo} />
+        <Text style={s.logoTitle}>TIME TRACKER</Text>
+      </View>
+    );
     const backButton = (
       <TouchableOpacity style={s.backButton} onPress={() => {
         return onBack ? onBack() : Actions.pop();
       }}>
-        <ChevronIcon />
+        <CrossIcon />
       </TouchableOpacity>
     );
     const closeButton = (
@@ -40,9 +45,9 @@ class NavigationBar extends Component {
         <CrossIcon />
       </TouchableOpacity>
     );
-    const actionButton = (
-      <TouchableOpacity style={s.rightButton} onPress={onAction}>
-        <Text>{actionText}</Text>
+    const saveButton = (
+      <TouchableOpacity style={s.rightButton} onPress={onSave}>
+        <TickIcon />
       </TouchableOpacity>
     );
     const menuButton = (
@@ -54,85 +59,24 @@ class NavigationBar extends Component {
     return (
       <View style={s.container}>
         <View style={s.content}>
-          <View style={s.logoBox}>
-            <Logo style={s.logo} />
-            <Text style={s.logoTitle}>TIME TRACKER</Text>
-            {hasMenuButton && menuButton}
-          </View>
-          {hasBackButton && backButton}
+          {hasBackButton ? backButton : logoBox}
+          {hasMenuButton && menuButton}
           {hasCloseButton && closeButton}
-          {hasActionButton && actionButton}
+          {hasSaveButton && saveButton}
         </View>
       </View>
     );
   }
 }
 
-export default NavigationBar;
-
-/*
-const NavigationBar = ({
-  hasBackButton,
-  hasSettingsButton,
-  hasCloseButton,
-  hasActionButton,
-  actionText,
-  onClose,
-  onAction,
-  onBack,
-  message = {}
-}) => {
-  const backButton = (
-    <TouchableOpacity style={s.backButton} onPress={() => {
-      return onBack ? onBack() : Actions.pop();
-    }}>
-      <ChevronIcon />
-    </TouchableOpacity>
-  );
-  const settingsButton = (
-    <TouchableOpacity style={s.rightButton} onPress={() => Actions.settings()}>
-      <CogIcon />
-    </TouchableOpacity>
-  );
-  const closeButton = (
-    <TouchableOpacity style={s.rightButton} onPress={onClose}>
-      <CrossIcon />
-    </TouchableOpacity>
-  );
-  const actionButton = (
-    <TouchableOpacity style={s.rightButton} onPress={onAction}>
-      <Text>{actionText}</Text>
-    </TouchableOpacity>
-  );
-  const messageBox = (
-    <View style={s.messageBox}>
-      <Text style={s.messageText}>{message.text}!</Text>
-    </View>
-  );
-
-  return (
-    <View style={s.container}>
-      <View style={s.content}>
-        <Logo style={s.logo} />
-        {hasBackButton && backButton}
-        {hasSettingsButton && settingsButton}
-        {hasCloseButton && closeButton}
-        {hasActionButton && actionButton}
-        {(message.hasOwnProperty('text') && message.text !== '') && messageBox}
-      </View>
-    </View>
-  );
-};
-
 NavigationBar.propTypes = {
   hasBackButton: PropTypes.bool,
-  hasSettingsButton: PropTypes.bool,
   hasCloseButton: PropTypes.bool,
-  hasActionButton: PropTypes.bool,
-  actionText: PropTypes.string,
+  hasSaveButton: PropTypes.bool,
+  hasMenuButton: PropTypes.bool,
   onClose: PropTypes.func,
-  onAction: PropTypes.func,
+  onSave: PropTypes.func,
   onBack: PropTypes.func
 };
 
-export default NavigationBar;*/
+export default NavigationBar;

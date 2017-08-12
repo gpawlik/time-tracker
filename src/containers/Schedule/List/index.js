@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import { selectCalendar } from 'containers/Schedule/selectors';
 
+import NavigationBar from 'components/NavigationBar';
 import Calendar from 'components/Calendar';
 
 class HistoryList extends React.Component {
@@ -26,6 +27,14 @@ class HistoryList extends React.Component {
     );
   }
 }
+
+HistoryList.navBar = () => {
+  return (
+    <NavigationBar
+      hasMenuButton
+    />
+  );
+};
 
 function mapStateToProps() {
   return createStructuredSelector({

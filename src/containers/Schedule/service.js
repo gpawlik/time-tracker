@@ -4,6 +4,6 @@ export const fetchSchedule = () => {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(mock.data);
-    }, 1000);
+    }, 100);
   });
 };

@@ -1,3 +1,4 @@
+import AvatarIcon from './AvatarIcon';
 import CalendarIcon from './CalendarIcon';
 import ChevronIcon from './ChevronIcon';
 import CogIcon from './CogIcon';
@@ -7,9 +8,11 @@ import HomeIcon from './HomeIcon';
 import Logo from './Logo';
 import MenuIcon from './MenuIcon';
 import ReportIcon from './ReportIcon';
+import TickIcon from './TickIcon';
 import Warning from './Warning';
 
 export {
+  AvatarIcon,
   CalendarIcon,
   ChevronIcon,
   CogIcon,
@@ -19,5 +22,6 @@ export {
   Logo,
   MenuIcon,
   ReportIcon,
+  TickIcon,
   Warning
 };

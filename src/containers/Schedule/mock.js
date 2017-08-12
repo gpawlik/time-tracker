@@ -3,7 +3,7 @@ export const recent = [{
   name: 'Condé Nast International',
   details: 'Tugboat Migration Project'
 }, {
-  key: 'mckinsey-co',
+  key: 'mckinsey-sp',
   name: 'McKinsey Co.',
   details: 'Wave Project'
 }, {

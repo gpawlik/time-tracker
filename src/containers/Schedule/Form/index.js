@@ -1,15 +1,16 @@
 import React from 'react';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
-import { Text, TextInput, TouchableHighlight, View } from 'react-native';
+import { Text, TextInput, View } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 import Select from 'components/Form/Select';
 import RecentPick from 'components/Form/RecentPick';
+import NavigationBar from 'components/NavigationBar';
 
 import { selectCurrentScheduleDate, selectCurrentSchedule } from 'containers/Schedule/selectors';
 import { updateSchedule } from './../actions';
-import { formatDate } from 'helpers/date';
-import config from 'config';
+import config from 'config/clients';
 import { recent } from './../mock';
 
 import s from './style';
@@ -55,6 +56,8 @@ class ScheduleForm extends React.Component {
     const { onUpdateSchedule, currentScheduleDate } = this.props;
     const { key, name, details } = this.state;
 
+    Actions.pop();
+
     onUpdateSchedule({
       date: currentScheduleDate,
       payload: {
@@ -67,13 +70,10 @@ class ScheduleForm extends React.Component {
   }
 
   render() {
-    const { currentScheduleDate } = this.props;
     const { key, details } = this.state;
-    const currentDate = formatDate(currentScheduleDate, 'dddd, Do MMM');
 
     return (
-      <View>
-        <Text style={s.header}>{currentDate}</Text>
+      <View style={s.view}>
         <Select
           selected={key}
           onChange={this._handleSelect}
@@ -90,12 +90,22 @@ class ScheduleForm extends React.Component {
             autoCorrect={false}
           />
         </View>
-        <TouchableHighlight onPress={this._handleSave}><Text>Save</Text></TouchableHighlight>
         <RecentPick values={recent} onSelect={this._handlePick} />
       </View>
     );
   }
 }
+
+ScheduleForm.navBar = props => {
+  return (
+    <NavigationBar
+      hasBackButton
+      hasSaveButton
+      onBack={props.onRight}
+      onSave={props.onRight}
+    />
+  );
+};
 
 function mapStateToProps() {
   return createStructuredSelector({

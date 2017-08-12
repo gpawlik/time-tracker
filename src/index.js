@@ -57,19 +57,18 @@ class timeTracker extends Component {
                     key="tab1_1"
                     component={Schedule}
                     title="Tab #1_1"
+
                   />
                   <Scene
                     key="tab1_2"
                     component={Form}
                     title="Tab #1_2"
-                    back
-                    titleStyle={{color: 'black', alignSelf: 'center'}}
                     onRight={() => Actions.pop()}
-                    rightTitle="Save"
+                    initial
                   />
                 </Scene>
                 <Scene key="tab2" component={List} title="History" iconType="calendar" icon={TabIcon} />
-                <Scene key="tab3" component={Report} title="Report" iconType="report" icon={TabIcon} initial />
+                <Scene key="tab3" component={Report} title="Report" iconType="report" icon={TabIcon} />
               </Scene>
             </Scene>
           </Scene>
