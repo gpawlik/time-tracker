@@ -1,38 +1,83 @@
-import React from 'react';
-import { Text, TouchableHighlight, View, StyleSheet } from 'react-native';
+import React, { Component } from 'react';
+import { Animated, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 
-import { AvatarIcon, TapIcon } from 'components/Icons';
+import { isWeekDay } from 'helpers/date';
+
+import { HolidayIcon, TapIcon } from 'components/Icons';
 
 import s from './style';
+import animate from './animation';
 
-export default ({ data = { payload: {} }, onPress }) => {
-  const unitStyle = data.payload.name ? s.unitActive : s.unitInActive;
-  const textBox = (
-    <View>
-      <Text style={s.name}>{data.payload.name}</Text>
-      <Text style={s.details}>{data.payload.details}</Text>
-    </View>
-  );
-  const emptyBox = (
-    <View style={s.emptyBox}>
-      <TapIcon />
-      <Text style={s.actionText}>Please tap to provide details for selected date.</Text>
-    </View>
-  );
+class MainUnit extends Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <TouchableHighlight
-      style={unitStyle}
-      onPress={onPress}
-      underlayColor={StyleSheet.flatten(unitStyle).backgroundColor}>
+    this.state = {
+      borderWidth: new Animated.Value(0),
+      scale: new Animated.Value(1)
+    };
+  }
+
+  componentWillUpdate() {
+    const { borderWidth, scale } = this.state;
+
+    animate({ borderWidth, scale });
+  }
+
+  render() {
+    const { data = { payload: {} }, onPress } = this.props;
+    const { borderWidth, scale } = this.state;
+    const { date, payload } = data;
+
+    const activeBox = (
       <View>
-        <View style={s.textBox}>
-          {data.payload.name ? textBox : emptyBox}
-        </View>
-        <View style={s.iconBox}>
-          <AvatarIcon width={55} height={55} />
-        </View>
+        <Text style={s.name}>{payload.name}</Text>
+        <Text style={s.details}>{payload.details}</Text>
       </View>
-    </TouchableHighlight>
-  );
-};
+    );
+    const actionBox = (
+      <View style={s.emptyBox}>
+        <TapIcon />
+        <Text style={s.actionText}>Please tap to provide details for selected date.</Text>
+      </View>
+    );
+    const holidayBox = (
+      <View style={s.emptyBox}>
+        <HolidayIcon width={70} height={70} />
+        <Text style={s.holidayText}>Enjoy the weekend!</Text>
+      </View>
+    );
+    let contentBox, unitStyle;
+
+    console.log('date', date);
+
+    if(data.payload.name) {
+      contentBox = activeBox;
+      unitStyle = s.unitActive;
+    } else if (isWeekDay(date)) {
+      contentBox = actionBox;
+      unitStyle = s.unitInActive;
+    } else {
+      contentBox = holidayBox;
+      unitStyle = s.unitInActive;
+    }
+
+    return (
+      <Animated.View style={{ ...StyleSheet.flatten(unitStyle), borderWidth, transform: [{ scale }] }}>
+        <TouchableOpacity
+          onPress={onPress}
+          activeOpacity={0.9}>
+          <View style={s.textBox}>
+            {contentBox}
+          </View>
+        </TouchableOpacity>
+        <View style={s.iconBox}>
+          <Text style={s.unitDate}>{date.format('dddd')}</Text>
+          <Text style={s.unitDate}>{date.format('MMM D').toUpperCase()}</Text>
+        </View>
+      </Animated.View>
+    );
+  }
+}
+
+export default MainUnit;

@@ -5,6 +5,7 @@ import CogIcon from './CogIcon';
 import CrossIcon from './CrossIcon';
 import DangerIcon from './DangerIcon';
 import EditIcon from './EditIcon';
+import HolidayIcon from './HolidayIcon';
 import HomeIcon from './HomeIcon';
 import Logo from './Logo';
 import MenuIcon from './MenuIcon';
@@ -22,6 +23,7 @@ export {
   CrossIcon,
   DangerIcon,
   EditIcon,
+  HolidayIcon,
   HomeIcon,
   Logo,
   MenuIcon,

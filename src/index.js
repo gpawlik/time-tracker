@@ -45,9 +45,9 @@ class timeTracker extends Component {
                 tabBarStyle={styles.tabBarStyle}
                 activeTintColor="red"
               >
-                <Scene key="tab1" component={Home} title="Home" iconType="home" icon={TabIcon} />
+                <Scene key="tab1" component={Home} title="Home" iconType="home" icon={TabIcon} initial />
                 <Scene key="tab2" component={List} title="History" iconType="calendar" icon={TabIcon} />
-                <Scene key="tab3" component={Report} title="Report" iconType="report" icon={TabIcon} initial />
+                <Scene key="tab3" component={Report} title="Report" iconType="report" icon={TabIcon} />
               </Scene>
               <Scene
                 hideNavBar={false}

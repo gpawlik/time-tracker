@@ -9,12 +9,12 @@ const basicUnit = {
   alignItems: 'center',
   alignSelf: 'center',
   justifyContent: 'center',
-  margin: 20,
+  margin: 39,
   padding: 20,
   borderWidth: 8
 };
 const activeUnit = {
-  borderColor: DARK_GREEN,
+  borderColor: LIGHT_GREEN,
   backgroundColor: WHITE
 };
 const inActiveUnit = {
@@ -66,8 +66,16 @@ export default StyleSheet.create({
     textAlign: 'center',
     marginTop: 10
   },
+  holidayText: {
+    color: DARK_GRAY,
+    fontWeight: '600',
+    fontFamily: 'Dosis',
+    fontSize: 24,
+    textAlign: 'center',
+    marginTop: 10
+  },
   iconBox: {
-    width: 70,
+    width: 90,
     height: 70,
     position: 'absolute',
     bottom: 0,
@@ -75,6 +83,13 @@ export default StyleSheet.create({
     backgroundColor: WHITE,
     justifyContent: 'center',
     alignItems: 'center',
-    transform: [{ translate: [65, 55] }]
+    transform: [{ translate: [83, 38] }]
+  },
+  unitDate: {
+    color: LIGHT_GRAY,
+    fontWeight: '600',
+    fontFamily: 'Dosis',
+    fontSize: 16,
+    textAlign: 'center'
   }
 });

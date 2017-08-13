@@ -11,9 +11,7 @@ import {
   selectIsLoading,
   selectIsFetched
 } from 'containers/Schedule/selectors';
-import { formatDate } from 'helpers/date';
 
-import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
 import Preloader from 'components/Preloader';
 import UnitBar from 'components/Unit/Bar';
@@ -49,7 +47,6 @@ class Schedule extends React.Component {
           calendar={calendar}
           onSelect={this._handleDateChange}
         />
-        <Header>{formatDate(currentSchedule.date, 'dddd, MMMM D, YYYY')}</Header>
         <MainUnit
           data={currentSchedule}
           onPress={() => Actions.scheduleForm()}

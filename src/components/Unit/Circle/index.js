@@ -1,25 +1,31 @@
 import React from 'react';
-import { View } from 'react-native';
 
-import { Warning } from 'components/Icons';
+import {
+  DangerIcon,
+  HolidayIcon,
+  Logo,
+  TickRoundedIcon
+} from 'components/Icons';
 
 import s from './style';
 
 export default ({ type }) => {
-  let circleStyle;
+  let Handler;
 
   switch (type) {
     case 'active':
-      circleStyle = s.circleActive;
+      Handler = TickRoundedIcon;
       break;
     case 'warning':
-      circleStyle = s.circleWarning;
+      Handler = DangerIcon;
+      break;
+    case 'holiday':
+      Handler = HolidayIcon;
       break;
     default:
-      circleStyle = s.circleInActive;
+      Handler = Logo;
   }
   return (
-    <View style={circleStyle}>
-    </View>
+    <Handler style={s.icon} width={20} height={20} />
   );
 };

@@ -18,14 +18,9 @@ const initialState = fromJS({
 
 // TODO: move away (to selectors?)
 const findCurrentSchedule = (state, date) => {
-  var t0 = performance.now();
-
   const schedule = state.get('schedule').find(item => {
     return isSameDay(item.get('date'), date);
   });
-
-  var t1 = performance.now();
-  console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.")
 
   return schedule || fromJS({
     date: moment(date),

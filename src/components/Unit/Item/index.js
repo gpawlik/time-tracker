@@ -14,6 +14,8 @@ export default ({ itemEvents = [], date, onSelect }) => {
     type = 'active';
   } else if (!isCircleActive && isFromPast(date) && isWeekDay(date)) {
     type = 'warning';
+  } else if (!isWeekDay(date)) {
+    type = 'holiday';
   } else {
     type = 'inactive';
   }

@@ -8,6 +8,9 @@ import { EditIcon } from 'components/Icons';
 import { isFromPast, isWeekDay } from 'helpers/date';
 
 import s from './style';
+import animate from './animation';
+
+import { LIGHT_GRAY, LIGHT_YELLOW } from 'config/colors';
 
 export default class Item extends Component {
   constructor(props) {
@@ -37,23 +40,11 @@ export default class Item extends Component {
       isEditing: !isEditing
     });
 
-    // TODO: move to another folder?
-    Animated.parallel([
-      Animated.timing(
-        itemPositionLeft,
-        {
-          toValue: isEditing ? 0 : -60,
-          duration: 200
-        }
-      ),
-      Animated.timing(
-        itemPositionRight,
-        {
-          toValue: isEditing ? -60 : 0,
-          duration: 200
-        }
-      )
-    ]).start();
+    animate({
+      isEditing,
+      itemPositionLeft,
+      itemPositionRight
+    });
   }
 
   _handleEdit() {
@@ -69,12 +60,24 @@ export default class Item extends Component {
       left: itemPositionLeft,
       right: itemPositionRight
     };
+    const holidayBox = (
+      <View style={s.itemInfo}>
+        <Text style={{ ...StyleSheet.flatten(s.itemTitle), color: LIGHT_GRAY }}>Weekend</Text>
+      </View>
+    );
+    const warningBox = (
+      <View style={s.itemInfo}>
+        <Text style={{ ...StyleSheet.flatten(s.itemTitle), color: LIGHT_YELLOW }}>Oops... Something is missing</Text>
+      </View>
+    );
     let type;
 
     if(isCircleActive) {
       type = 'active';
     } else if (!isCircleActive && isFromPast(moment) && isWeekDay(moment)) {
       type = 'warning';
+    } else if (!isWeekDay(moment)) {
+      type = 'holiday';
     } else {
       type = 'inactive';
     }
@@ -98,6 +101,8 @@ export default class Item extends Component {
                 </View>
               );
             })}
+            {type === 'warning' && warningBox}
+            {type === 'holiday' && holidayBox}
           </View>
           <Text style={s.date}>{moment && moment.format('MMM D').toUpperCase()}</Text>
           <TouchableHighlight
