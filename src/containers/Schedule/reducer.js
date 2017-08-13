@@ -1,6 +1,7 @@
 import { fromJS } from 'immutable';
 import moment from 'moment';
 
+import { generateCalendar, fillCalendar } from 'helpers/calendar';
 import { isSameDay } from 'helpers/date';
 
 import { actionTypes as at } from './constants';
@@ -12,6 +13,7 @@ const initialState = fromJS({
     date: moment(),
     payload: {}
   },
+  calendar: generateCalendar(),
   isLoading: false,
   isFetched: false
 });
@@ -38,7 +40,8 @@ export default (state = initialState, action) => {
       return state
         .set('isLoading', false)
         .set('isFetched', true)
-        .set('schedule', fromJS(action.payload));
+        .set('schedule', fromJS(action.payload))
+        .set('calendar', fillCalendar(generateCalendar(), action.payload));
     case at.SCHEDULE_FETCH_ERROR:
       return state
         .set('isLoading', false)

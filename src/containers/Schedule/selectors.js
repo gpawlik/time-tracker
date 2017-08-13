@@ -20,7 +20,11 @@ const selectCurrentSchedule = () => createSelector(
 
 const selectCalendar = () => createSelector(
   getScheduleDomain(),
-  scheduleState => fillCalendar(generateCalendar(), scheduleState.get('schedule').toJS()).toJS()
+  scheduleState => {
+    console.log('filling calendar all the time');
+    return scheduleState.get('calendar').toJS();
+    //return fillCalendar(generateCalendar(), scheduleState.get('schedule').toJS()).toJS();
+  }
 );
 
 const selectIsLoading = () => createSelector(
