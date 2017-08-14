@@ -2,11 +2,11 @@
   "presets": ["react-native"],
   "plugins": [
     ["babel-plugin-module-alias", [
-      { "src": "./src/assets", "expose": "assets" }
-      { "src": "./src/components", "expose": "components" }
-      { "src": "./src/config", "expose": "config" }
-      { "src": "./src/containers", "expose": "containers" }
-      { "src": "./src/helpers", "expose": "helpers" }
+      { "src": "./src/assets", "expose": "assets" },
+      { "src": "./src/components", "expose": "components" },
+      { "src": "./src/config", "expose": "config" },
+      { "src": "./src/containers", "expose": "containers" },
+      { "src": "./src/helpers", "expose": "helpers" },
       { "src": "./src/i18n", "expose": "i18n" }
     ]]
   ]

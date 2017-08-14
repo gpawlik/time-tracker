@@ -1,12 +1,13 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import moment from 'moment';
 
 import ReportItem from 'components/Report/ReportItem';
 
+import translate from 'helpers/translate';
+
 import s from './style';
 
-export default ({ month = {}, monthIndex }) => {
+export default ({ month = {} }) => {
 
   //: TODO: move all this shit to selectors?
   const getReport = month => {
@@ -37,14 +38,14 @@ export default ({ month = {}, monthIndex }) => {
     <View style={s.container}>
       <View style={s.dataBox}>
         <View style={s.labelBox}>
-          <Text style={s.label}>{'Client'.toUpperCase()}</Text>
-          <Text style={s.label}>{'Days'.toUpperCase()}</Text>
+          <Text style={s.label}>{translate('report.resume.name').toUpperCase()}</Text>
+          <Text style={s.label}>{translate('report.resume.quantity').toUpperCase()}</Text>
         </View>
         {Object.keys(dataItems).map((dataKey, index) => {
           return <ReportItem name={dataKey} days={dataItems[dataKey]} key={index} />;
         })}
       </View>
-      <Text style={s.summary}>{'Total'.toUpperCase()}: {monthSummary}</Text>
+      <Text style={s.summary}>{translate('report.resume.total').toUpperCase()}: {monthSummary}</Text>
     </View>
   );
 };

@@ -3,12 +3,14 @@ import { Text, TouchableOpacity, View } from 'react-native';
 
 import { AvatarIcon } from 'components/Icons';
 
+import translate from 'helpers/translate';
+
 import s from './style';
 
 export default ({ values = [], onSelect }) => {
   return (
     <View>
-      <Text style={s.header}>{'Recent Picks'.toUpperCase()}</Text>
+      <Text style={s.header}>{translate('form.recent').toUpperCase()}</Text>
       {values.map((item, key) => {
         return (
           <TouchableOpacity style={s.item} activeOpacity={0.65} onPress={() => onSelect(item)} key={key}>

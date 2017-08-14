@@ -10,6 +10,7 @@ import NavigationBar from 'components/NavigationBar';
 import { selectCurrentScheduleDate, selectCurrentSchedule } from 'containers/Schedule/selectors';
 import { setCurrentSchedule } from './../actions';
 import config from 'config/clients';
+import translate from 'helpers/translate';
 import { recent } from './../mock';
 
 import s from './style';
@@ -70,7 +71,7 @@ class ScheduleForm extends React.Component {
           options={config.clients}>
         </Select>
         <View style={s.section}>
-          <Text style={s.textInputLabel}>{'Project details (optional)'.toUpperCase()}</Text>
+          <Text style={s.textInputLabel}>{translate('form.details').toUpperCase()}</Text>
           <TextInput
             style={s.textInput}
             onChangeText={this._handleTextChange}

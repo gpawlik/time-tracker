@@ -5,6 +5,8 @@ import { isEqual } from 'lodash';
 
 import Circle from 'components/Unit/Circle';
 import { EditIcon } from 'components/Icons';
+
+import translate from 'helpers/translate';
 import { isFromPast, isWeekDay } from 'helpers/date';
 
 import s from './style';
@@ -62,12 +64,12 @@ export default class Item extends Component {
     };
     const holidayBox = (
       <View style={s.itemInfo}>
-        <Text style={{ ...StyleSheet.flatten(s.itemTitle), color: LIGHT_GRAY }}>Weekend</Text>
+        <Text style={{ ...StyleSheet.flatten(s.itemTitle), color: LIGHT_GRAY }}>{translate('calendar.weekend')}</Text>
       </View>
     );
     const warningBox = (
       <View style={s.itemInfo}>
-        <Text style={{ ...StyleSheet.flatten(s.itemTitle), color: LIGHT_YELLOW }}>Oops... Something is missing</Text>
+        <Text style={{ ...StyleSheet.flatten(s.itemTitle), color: LIGHT_YELLOW }}>{translate('calendar.empty')}</Text>
       </View>
     );
     let type;

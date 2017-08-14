@@ -4,7 +4,10 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
-import { fetch, updateScheduleDate } from 'containers/Schedule/actions';
+import {
+  fetch,
+  updateScheduleDate
+} from 'containers/Schedule/actions';
 import {
   selectCalendar,
   selectCurrentSchedule,
@@ -17,6 +20,8 @@ import Preloader from 'components/Preloader';
 import UnitBar from 'components/Unit/Bar';
 import MainUnit from 'components/Unit/Main';
 import MessageBox from 'components/MessageBox';
+
+import translate from 'helpers/translate';
 
 import s from '../../../style';
 
@@ -38,7 +43,7 @@ class Schedule extends React.Component {
   render() {
     let isValid = false;
     const { calendar, isLoading, currentSchedule } = this.props;
-    const messageText = isValid ? 'Great! Your schedule is up to date!' : 'It looks like you missed to report something!';
+    const messageText = isValid ? translate('home.validity.success') : translate('home.validity.warning');
     const status = isValid ? 'valid' : 'invalid';
 
     return (

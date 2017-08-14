@@ -1,5 +1,29 @@
 {
-  "about": {
-    "title": "About"
-  }
+  "home": {
+    "button": {
+      "empty": "Pulsa para especificar los detalles de este día",
+      "weekend": "Disfruta el finde!"
+    },
+    "validity": {
+      "success": "Perfecto! Tu reporte está al día!",
+      "warning": "Parece que te falta completar el reporte"
+    }
+  },
+  "form": {
+    "details": "Detalle del proyecto (opcional)",
+    "recent": "Recientes"
+  },
+  "calendar": {
+    "week": "Semana",
+    "weekend": "Fin de semana",
+    "empty": "Oops... Parece que falta algo",
+  },
+  "report": {
+    "resume": {
+      "name": "Cliente",
+      "quantity": "Días",
+      "total": "Total"
+    }
+  },
+  "loading": "Cargando"
 }

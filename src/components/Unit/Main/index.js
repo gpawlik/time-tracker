@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Animated, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 
+import translate from 'helpers/translate';
 import { isWeekDay } from 'helpers/date';
 
 import { HolidayIcon, TapIcon } from 'components/Icons';
@@ -38,13 +39,13 @@ class MainUnit extends Component {
     const actionBox = (
       <View style={s.emptyBox}>
         <TapIcon />
-        <Text style={s.actionText}>Please tap to provide details for selected date.</Text>
+        <Text style={s.actionText}>{translate('home.button.empty')}</Text>
       </View>
     );
     const holidayBox = (
       <View style={s.emptyBox}>
         <HolidayIcon width={70} height={70} />
-        <Text style={s.holidayText}>Enjoy the weekend!</Text>
+        <Text style={s.holidayText}>{translate('home.button.weekend')}</Text>
       </View>
     );
     let contentBox, unitStyle;

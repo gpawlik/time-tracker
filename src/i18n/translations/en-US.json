@@ -1,5 +1,29 @@
 {
-  "about": {
-    "title": "About"
-  }
+  "home": {
+    "button": {
+      "empty": "Please tap to provide details for selected date",
+      "weekend": "Enjoy the weekend!"
+    },
+    "validity": {
+      "success": "Great! Your schedule is up to date!",
+      "warning": "It looks like you missed to report something!"
+    }
+  },
+  "form": {
+    "details": "Project details (optional)",
+    "recent": "Recent picks"
+  },
+  "calendar": {
+    "week": "Week",
+    "weekend": "Weekend",
+    "empty": "Oops... Something is missing",
+  },
+  "report": {
+    "resume": {
+      "name": "Client",
+      "quantity": "Days",
+      "total": "Total"
+    }
+  },
+  "loading": "Loading"
 }
