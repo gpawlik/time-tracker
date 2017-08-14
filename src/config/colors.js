@@ -1,7 +1,3 @@
-export default {
-
-};
-
 export const RED = '#e65649';
 export const GRAY = '#999';
 export const LIGHT_GRAY = '#ccc';

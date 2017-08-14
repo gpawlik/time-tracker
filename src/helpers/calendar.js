@@ -1,35 +1,19 @@
 import moment from 'moment';
-import { fromJS, List } from 'immutable';
+import { List } from 'immutable';
 
-// eliminate?
-export const generateWeeklyCalendar = (initialDate = '2017-07-01T00:00:00.000', endingDate = Date.now()) => {
-  const startWeek = moment(initialDate).week();
-  const endWeek = moment(endingDate).add(1, 'week').week();
+import config from 'config/clients';
 
-  const calendar = [];
-
-  for(let week = startWeek; week < endWeek; week++) {
-    calendar.push({
-      week: week,
-      days: Array(7).fill(0).map((n, i) => moment().week(week).startOf('week').clone().add(n + i, 'day'))
-    });
-  }
-
-  return calendar;
-};
-
-export const generateCalendar = (initialDate = '2017-03-05T00:00:00.000', endingDate = Date.now()) => {
-  const startWeek = moment(initialDate).week();
-  const endWeek = moment(endingDate).add(1, 'week').week();
+export const generateCalendar = (initialDate = config.calendar.initialDate, endingDate = Date.now()) => {
+  const startingWeek = moment(initialDate).week();
+  const endingWeek = moment(endingDate).add(1, 'week').week();
   const days = [];
 
-  for(let week = startWeek; week < endWeek; week++) {
+  for(let week = startingWeek; week < endingWeek; week++) {
     Array(7).fill(0).map((n, i) => {
       days.push(moment().week(week).startOf('week').clone().add(n + i, 'day'));
     });
   }
 
-  // TODO: compare performance with vanilla JS
   return days.reduce((memo, day) => {
     return memo.setIn([
       day.year(),
@@ -38,23 +22,30 @@ export const generateCalendar = (initialDate = '2017-03-05T00:00:00.000', ending
       day.day(),
       'moment'
     ], day);
-  }, fromJS({}));
+  }, new List());
 };
 
 export const fillCalendar = (calendar, events) => {
   return events.reduce((memo, { date, payload }) => {
-    return memo.updateIn([
+    return memo.setIn([
       moment(date).year(),
       moment(date).month() + 1,
       moment(date).week(),
       moment(date).day(),
       'events'
-    ], list => {
-      if(list) {
-        return list.push(payload);
-      } else {
-        return new List([payload]);
-      }
-    });
+    ], new List([payload]));
   }, calendar);
+};
+
+export const insertIntoCalendar = (calendar, event) => {
+  const date = event.get('date');
+  const payload = event.get('payload');
+
+  return calendar.setIn([
+    moment(date).year(),
+    moment(date).month() + 1,
+    moment(date).week(),
+    moment(date).day(),
+    'events'
+  ], new List([payload]));
 };

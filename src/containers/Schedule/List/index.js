@@ -9,6 +9,8 @@ import { updateScheduleDate } from 'containers/Schedule/actions';
 import NavigationBar from 'components/NavigationBar';
 import Calendar from 'components/Calendar';
 
+import s from '../../../style';
+
 class HistoryList extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +19,7 @@ class HistoryList extends React.Component {
   }
 
   componentDidMount() {
-    this.refs.scrollView.scrollTo({ y: 1800 });
+    this.refs.scrollView.scrollTo({ y: 11828 });
   }
 
   _handleItemSelect(date) {
@@ -28,7 +30,7 @@ class HistoryList extends React.Component {
     const { calendar } = this.props;
 
     return (
-      <ScrollView ref="scrollView" style={{ marginTop: 74 }}>
+      <ScrollView ref="scrollView" style={s.scene}>
         <Calendar data={calendar} onSelect={this._handleItemSelect} />
       </ScrollView>
     );
@@ -43,18 +45,14 @@ HistoryList.navBar = () => {
   );
 };
 
-function mapStateToProps() {
-  return createStructuredSelector({
-    calendar: selectCalendar()
-  });
-}
+const mapStateToProps = createStructuredSelector({
+  calendar: selectCalendar()
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    onScheduleDateUpdate: date => {
-      dispatch(updateScheduleDate(date));
-    }
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  onScheduleDateUpdate: date => {
+    dispatch(updateScheduleDate(date));
+  }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(HistoryList);

@@ -70,7 +70,7 @@ class ScheduleForm extends React.Component {
           options={config.clients}>
         </Select>
         <View style={s.section}>
-          <Text style={s.textInputLabel}>{'Project details (optional)'.toUpperCase()} {Math.random()}</Text>
+          <Text style={s.textInputLabel}>{'Project details (optional)'.toUpperCase()}</Text>
           <TextInput
             style={s.textInput}
             onChangeText={this._handleTextChange}
@@ -97,19 +97,15 @@ ScheduleForm.navBar = props => {
   );
 };
 
-function mapStateToProps() {
-  return createStructuredSelector({
-    currentScheduleDate: selectCurrentScheduleDate(),
-    currentSchedule: selectCurrentSchedule()
-  });
-}
+const mapStateToProps = createStructuredSelector({
+  currentScheduleDate: selectCurrentScheduleDate(),
+  currentSchedule: selectCurrentSchedule()
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    onSetSchedule: data => {
-      dispatch(setCurrentSchedule(data));
-    }
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  onSetSchedule: data => {
+    dispatch(setCurrentSchedule(data));
+  }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ScheduleForm);

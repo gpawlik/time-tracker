@@ -26,7 +26,7 @@ const getMock = days => {
     const projectId = Math.round(Math.random() * 2);
 
     // skip weekends and recent random days
-    if (Math.round(Math.random() * 3) === 0 && days - index < 14 || !isWeekDay(mockDate)) {
+    if (Math.round(Math.random() * 2) === 0 && days - index < 14 || !isWeekDay(mockDate)) {
       return memo;
     }
 

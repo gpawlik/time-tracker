@@ -45,7 +45,7 @@ class WeekItem extends Component {
     return (
       <View style={s.container}>
         <TouchableOpacity onPress={this._handleToggle} activeOpacity={0.65} style={s.label}>
-          <Text style={s.labelText}>Week {weekIndex} {Math.random()}</Text>
+          <Text style={s.labelText}>Week {weekIndex}</Text>
         </TouchableOpacity>
         <Animated.View style={{ height: itemHeight }}>
           {Object.keys(days).map(key => {

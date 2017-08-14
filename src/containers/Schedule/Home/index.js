@@ -18,6 +18,8 @@ import UnitBar from 'components/Unit/Bar';
 import MainUnit from 'components/Unit/Main';
 import MessageBox from 'components/MessageBox';
 
+import s from '../../../style';
+
 class Schedule extends React.Component {
   constructor(props) {
     super(props);
@@ -40,7 +42,7 @@ class Schedule extends React.Component {
     const status = isValid ? 'valid' : 'invalid';
 
     return (
-      <View style={{ marginTop: 74 }}>
+      <View style={s.scene}>
         {isLoading && <Preloader />}
         <UnitBar
           items={7}
@@ -57,25 +59,21 @@ class Schedule extends React.Component {
   }
 }
 
-function mapStateToProps() {
-  return createStructuredSelector({
-    calendar: selectCalendar(),
-    currentSchedule: selectCurrentSchedule(),
-    isLoading: selectIsLoading(),
-    isFetched: selectIsFetched()
-  });
-}
+const mapStateToProps = createStructuredSelector({
+  calendar: selectCalendar(),
+  currentSchedule: selectCurrentSchedule(),
+  isLoading: selectIsLoading(),
+  isFetched: selectIsFetched()
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    onScheduleFetch: () => {
-      dispatch(fetch());
-    },
-    onScheduleDateUpdate: date => {
-      dispatch(updateScheduleDate(date));
-    }
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  onScheduleFetch: () => {
+    dispatch(fetch());
+  },
+  onScheduleDateUpdate: date => {
+    dispatch(updateScheduleDate(date));
+  }
+});
 
 Schedule.navBar = () => {
   return (

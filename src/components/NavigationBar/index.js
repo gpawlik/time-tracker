@@ -29,7 +29,7 @@ class NavigationBar extends Component {
 
     const logoBox = (
       <View style={s.logoBox}>
-        <Logo style={s.logo} isActive />
+        <Logo isActive />
         <Text style={s.logoTitle}>TIME TRACKER</Text>
       </View>
     );

@@ -1,4 +1,7 @@
 export default {
+  calendar: {
+    initialDate: '2017-03-05T00:00:00.000'
+  },
   clients: [{
     label: 'Microsoft',
     value: 'ms'

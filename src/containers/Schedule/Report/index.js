@@ -9,7 +9,7 @@ import NavigationBar from 'components/NavigationBar';
 import BarChart from 'components/Report/Chart';
 import ReportBox from 'components/Report/ReportBox';
 
-import s from './style';
+import s from '../../../style';
 
 class Report extends React.Component {
   constructor(props) {
@@ -26,10 +26,10 @@ class Report extends React.Component {
   _handleScroll(e) {
     const deviceWidth = Dimensions.get('window').width;
     const currentOffset = e.nativeEvent.contentOffset.x;
-    const scrollPage = Math.floor(currentOffset / deviceWidth);
+    const scrollIndex = Math.floor(currentOffset / deviceWidth);
 
     this.setState({
-      currentScrollPage: scrollPage
+      currentScrollPage: scrollIndex
     });
   }
 
@@ -42,10 +42,8 @@ class Report extends React.Component {
     const { currentScrollPage } = this.state;
 
     return (
-      <View style={{ marginTop: 74 }}>
-        <View style={s.chartBox}>
-          <BarChart />
-        </View>
+      <View style={s.scene}>
+        <BarChart />
         <ReportBox
           calendar={calendar}
           year={2017}

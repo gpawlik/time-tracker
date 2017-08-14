@@ -5,29 +5,17 @@ import { Actions, Router, Modal, Scene } from 'react-native-router-flux';
 
 import store from './store';
 import { saveCurrentSchedule } from 'containers/Schedule/actions';
-//import scenes from './scenes';
 
-import TabIcon from 'components/TabIcon';
 import Home from 'containers/Schedule/Home';
 import List from 'containers/Schedule/List';
 import Form from 'containers/Schedule/Form';
 import Report from 'containers/Schedule/Report';
+import TabIcon from 'components/TabIcon';
+
+import s, { getSceneStyle } from './style';
 
 /* Allow XHR requests in devtools */
 GLOBAL.XMLHttpRequest = GLOBAL.originalXMLHttpRequest || GLOBAL.XMLHttpRequest;
-
-const getSceneStyle = () => ({
-  backgroundColor: 'white',
-  shadowOpacity: 1,
-  shadowRadius: 3
-});
-
-const styles = {
-  tabBarStyle: {
-    height: 65,
-    backgroundColor: '#fff'
-  }
-};
 
 //TODO: move Scenes to a separate file
 class timeTracker extends Component {
@@ -42,7 +30,7 @@ class timeTracker extends Component {
                 key="tabbar"
                 gestureEnabled={false}
                 showLabel={false}
-                tabBarStyle={styles.tabBarStyle}
+                tabBarStyle={s.tabBarStyle}
                 activeTintColor="red"
               >
                 <Scene key="tab1" component={Home} title="Home" iconType="home" icon={TabIcon} initial />

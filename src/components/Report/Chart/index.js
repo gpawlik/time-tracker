@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Dimensions, TouchableWithoutFeedback } from 'react-native';
-
+import {
+  Dimensions,
+  TouchableWithoutFeedback,
+  View
+} from 'react-native';
 import Svg, {
   G,
   Line,
@@ -8,22 +11,21 @@ import Svg, {
   Rect,
   Text
 } from 'react-native-svg';
-
-// d3 lib
 import {
   scaleBand,
   scaleLinear
 } from 'd3-scale';
-
 import {
   ticks
 } from 'd3-array';
-
 import {
   line
 } from 'd3-shape';
 
-import { LIGHT_GREEN, DARK_GREEN } from 'config/colors';
+import {
+  LIGHT_GREEN,
+  DARK_GREEN
+} from 'config/colors';
 
 import s from './style';
 
@@ -93,48 +95,50 @@ class BarChart extends Component {
     const labelDistance = 9;
 
     const svg = (
-      <Svg width={screen.width} height={height + 50}>
-        <G translate={margin.left + ',' + margin.top}>
-          <G translate={'0,' + height}>
-            <G key={-1}>
-              <Path stroke={colours.lightGray} strokeWidth="2" d={bottomAxisD} key="-1" strokeLinecap="round"/>
+      <View style={s.container}>
+        <Svg width={screen.width} height={height + 50}>
+          <G translate={margin.left + ',' + margin.top}>
+            <G translate={'0,' + height}>
+              <G key={-1}>
+                <Path stroke={colours.lightGray} strokeWidth="2" d={bottomAxisD} key="-1" strokeLinecap="round"/>
+                {
+                  data.map((d, i) => (
+                    <G key={i + 1} translate={x(d.letter) + labelDx + ',0'}>
+                      <Line strokeWidth="2" stroke={colours.lightGray} y2={notch} strokeLinecap="round"/>
+                      <Text fontFamily="Dosis" fontWeight="600" fill={colours.lightGray} fontSize="13" x={-10} y={labelDistance - 5}>{d.letter}</Text>
+                    </G>
+                  ))
+                }
+              </G>
+              <G key={-2}>
+                <Path stroke={colours.lightGray} strokeWidth="2" d={leftAxisD} key="-1" strokeLinecap="round"/>
+                {
+                  leftAxis.map((d, i) => (
+                    <G key={i + 1} translate={'8,' + (y(d) - height)}>
+                      <Line strokeWidth="2" stroke={colours.lightGray} x1={notch} x2={labelDistance} strokeLinecap="round"/>
+                      <Text fontFamily="Dosis" fontWeight="600" fill={colours.lightGray} fontSize="13" x={-labelDistance - 5} y={-notch - 7}>{d}</Text>
+                    </G>
+                  ))
+                }
+              </G>
               {
                 data.map((d, i) => (
-                  <G key={i + 1} translate={x(d.letter) + labelDx + ',0'}>
-                    <Line strokeWidth="2" stroke={colours.lightGray} y2={notch} strokeLinecap="round"/>
-                    <Text fontFamily="Dosis" fontWeight="600" fill={colours.lightGray} fontSize="13" x={-10} y={labelDistance - 5}>{d.letter}</Text>
-                  </G>
+                  <TouchableWithoutFeedback key={i} onPress={() => this.toggleHighlight(i)}>
+                    <Rect x={x(d.letter) + 7}
+                      y={y(d.frequency) - height}
+                      width={x.bandwidth()}
+                      height={height - y(d.frequency)}
+                      fill={this.state.barColour[i]}
+                      rx={3}
+                      ry={3}>
+                    </Rect>
+                  </TouchableWithoutFeedback>
                 ))
               }
             </G>
-            <G key={-2}>
-              <Path stroke={colours.lightGray} strokeWidth="2" d={leftAxisD} key="-1" strokeLinecap="round"/>
-              {
-                leftAxis.map((d, i) => (
-                  <G key={i + 1} translate={'8,' + (y(d) - height)}>
-                    <Line strokeWidth="2" stroke={colours.lightGray} x1={notch} x2={labelDistance} strokeLinecap="round"/>
-                    <Text fontFamily="Dosis" fontWeight="600" fill={colours.lightGray} fontSize="13" x={-labelDistance - 5} y={-notch - 7}>{d}</Text>
-                  </G>
-                ))
-              }
-            </G>
-            {
-              data.map((d, i) => (
-                <TouchableWithoutFeedback key={i} onPress={() => this.toggleHighlight(i)}>
-                  <Rect x={x(d.letter) + 7}
-                    y={y(d.frequency) - height}
-                    width={x.bandwidth()}
-                    height={height - y(d.frequency)}
-                    fill={this.state.barColour[i]}
-                    rx={3}
-                    ry={3}>
-                  </Rect>
-                </TouchableWithoutFeedback>
-              ))
-            }
           </G>
-        </G>
-      </Svg>
+        </Svg>
+      </View>
     );
 
     return svg;

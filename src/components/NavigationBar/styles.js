@@ -29,7 +29,7 @@ export default StyleSheet.create({
     }),
     right: 0,
     left: 0,
-    borderBottomWidth: 0.5,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: '#828287',
     position: 'absolute'
   },
@@ -86,8 +86,6 @@ export default StyleSheet.create({
   logoBox: {
     flexDirection: 'row',
     margin: 20
-  },
-  logo: {
   },
   logoTitle: {
     fontFamily: 'Dosis',

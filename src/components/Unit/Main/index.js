@@ -49,8 +49,6 @@ class MainUnit extends Component {
     );
     let contentBox, unitStyle;
 
-    console.log('date', date);
-
     if(data.payload.name) {
       contentBox = activeBox;
       unitStyle = s.unitActive;

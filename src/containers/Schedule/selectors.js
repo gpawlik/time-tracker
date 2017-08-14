@@ -20,11 +20,7 @@ const selectCurrentSchedule = () => createSelector(
 
 const selectCalendar = () => createSelector(
   getScheduleDomain(),
-  scheduleState => {
-    console.log('filling calendar all the time');
-    return scheduleState.get('calendar').toJS();
-    //return fillCalendar(generateCalendar(), scheduleState.get('schedule').toJS()).toJS();
-  }
+  scheduleState => scheduleState.get('calendar').toJS()
 );
 
 const selectIsLoading = () => createSelector(
@@ -37,6 +33,7 @@ const selectIsFetched = () => createSelector(
   scheduleState => scheduleState.get('isFetched')
 );
 
+export default getScheduleDomain;
 export {
   selectSchedule,
   selectCurrentScheduleDate,
@@ -45,5 +42,3 @@ export {
   selectIsLoading,
   selectIsFetched
 };
-
-export default getScheduleDomain;

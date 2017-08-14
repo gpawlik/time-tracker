@@ -1,7 +1,11 @@
 import { fromJS } from 'immutable';
 import moment from 'moment';
 
-import { generateCalendar, fillCalendar } from 'helpers/calendar';
+import {
+  generateCalendar,
+  fillCalendar,
+  insertIntoCalendar
+} from 'helpers/calendar';
 import { isSameDay } from 'helpers/date';
 
 import { actionTypes as at } from './constants';
@@ -54,7 +58,8 @@ export default (state = initialState, action) => {
       return state
         .updateIn(['schedule'], item => item.filter(sItem => {
           return !isSameDay(sItem.get('date'), state.get('currentScheduleDate'));
-        }).push(state.get('currentSchedule')));
+        }).push(state.get('currentSchedule')))
+        .set('calendar', insertIntoCalendar(state.get('calendar'), state.get('currentSchedule')));
     case at.SCHEDULE_DATE_UPDATE:
       return state
         .set('currentScheduleDate', action.payload)

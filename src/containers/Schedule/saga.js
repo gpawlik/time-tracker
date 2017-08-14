@@ -16,5 +16,4 @@ export const fetchScheduleList = function* fetchScheduleList(id) {
 
 export const scheduleWatcher = function* scheduleWatcher() {
   yield fork(takeLatest, at.SCHEDULE_FETCH, fetchScheduleList);
-  //yield fork(takeLatest, at.SCHEDULE_UPDATE, updateSchedule);
 };
