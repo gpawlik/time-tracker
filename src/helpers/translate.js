@@ -1,7 +1,7 @@
 import translations from 'i18n';
 
 // TODO: get the locale info from settings
-const currentLanguage = 'es';
+const currentLanguage = 'en';
 
 export default key => {
   return [currentLanguage].concat(key.split('.')).reduce((o, k) => {

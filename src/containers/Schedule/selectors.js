@@ -1,5 +1,4 @@
 import { createSelector } from 'reselect';
-import { generateCalendar, fillCalendar } from 'helpers/calendar';
 
 const getScheduleDomain = () => state => state.get('scheduleDomain');
 

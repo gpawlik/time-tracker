@@ -1,6 +1,7 @@
 export default {
   calendar: {
-    initialDate: '2017-03-05T00:00:00.000'
+    initialDate: '2017-03-05T00:00:00.000',
+    daysToMock: 161
   },
   clients: [{
     label: 'Microsoft',

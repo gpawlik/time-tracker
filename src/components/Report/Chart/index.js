@@ -1,40 +1,17 @@
 import React, { Component } from 'react';
-import {
-  Dimensions,
-  TouchableWithoutFeedback,
-  View
-} from 'react-native';
-import Svg, {
-  G,
-  Line,
-  Path,
-  Rect,
-  Text
-} from 'react-native-svg';
-import {
-  scaleBand,
-  scaleLinear
-} from 'd3-scale';
-import {
-  ticks
-} from 'd3-array';
-import {
-  line
-} from 'd3-shape';
+import { Dimensions, TouchableWithoutFeedback, View } from 'react-native';
+import Svg, { G, Line, Path, Rect, Text } from 'react-native-svg';
+import { scaleBand, scaleLinear } from 'd3-scale';
+import { ticks } from 'd3-array';
+import { line } from 'd3-shape';
 
 import {
+  LIGHT_GRAY,
   LIGHT_GREEN,
   DARK_GREEN
 } from 'config/colors';
 
 import s from './style';
-
-const colours = {
-  black: 'black',
-  lightGray: '#bbb',
-  blue: 'steelblue',
-  brown: 'brown'
-};
 
 // create the barchart (http://bl.ocks.org/mbostock/3885304)
 const data = [
@@ -100,23 +77,23 @@ class BarChart extends Component {
           <G translate={margin.left + ',' + margin.top}>
             <G translate={'0,' + height}>
               <G key={-1}>
-                <Path stroke={colours.lightGray} strokeWidth="2" d={bottomAxisD} key="-1" strokeLinecap="round"/>
+                <Path stroke={LIGHT_GRAY} strokeWidth="2" d={bottomAxisD} key="-1" strokeLinecap="round"/>
                 {
                   data.map((d, i) => (
                     <G key={i + 1} translate={x(d.letter) + labelDx + ',0'}>
-                      <Line strokeWidth="2" stroke={colours.lightGray} y2={notch} strokeLinecap="round"/>
-                      <Text fontFamily="Dosis" fontWeight="600" fill={colours.lightGray} fontSize="13" x={-10} y={labelDistance - 5}>{d.letter}</Text>
+                      <Line strokeWidth="2" stroke={LIGHT_GRAY} y2={notch} strokeLinecap="round"/>
+                      <Text fontFamily="Dosis" fontWeight="600" fill={LIGHT_GRAY} fontSize="13" x={-10} y={labelDistance - 5}>{d.letter}</Text>
                     </G>
                   ))
                 }
               </G>
               <G key={-2}>
-                <Path stroke={colours.lightGray} strokeWidth="2" d={leftAxisD} key="-1" strokeLinecap="round"/>
+                <Path stroke={LIGHT_GRAY} strokeWidth="2" d={leftAxisD} key="-1" strokeLinecap="round"/>
                 {
                   leftAxis.map((d, i) => (
                     <G key={i + 1} translate={'8,' + (y(d) - height)}>
-                      <Line strokeWidth="2" stroke={colours.lightGray} x1={notch} x2={labelDistance} strokeLinecap="round"/>
-                      <Text fontFamily="Dosis" fontWeight="600" fill={colours.lightGray} fontSize="13" x={-labelDistance - 5} y={-notch - 7}>{d}</Text>
+                      <Line strokeWidth="2" stroke={LIGHT_GRAY} x1={notch} x2={labelDistance} strokeLinecap="round"/>
+                      <Text fontFamily="Dosis" fontWeight="600" fill={LIGHT_GRAY} fontSize="13" x={-labelDistance - 5} y={-notch - 7}>{d}</Text>
                     </G>
                   ))
                 }

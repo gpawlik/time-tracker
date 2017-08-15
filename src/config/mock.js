@@ -1,6 +1,7 @@
 import moment from 'moment';
 
 import { isWeekDay } from 'helpers/date';
+import config from 'config/clients';
 
 export const recent = [{
   key: 'conde-nast-intl',
@@ -25,7 +26,6 @@ const getMock = days => {
     const mockDate = moment().subtract(days - index, 'days');
     const projectId = Math.round(Math.random() * 2);
 
-    // skip weekends and recent random days
     if (Math.round(Math.random() * 2) === 0 && days - index < 14 || !isWeekDay(mockDate)) {
       return memo;
     }
@@ -45,5 +45,5 @@ const getMock = days => {
 };
 
 export default {
-  data: getMock(161)
+  data: getMock(config.calendar.daysToMock)
 };

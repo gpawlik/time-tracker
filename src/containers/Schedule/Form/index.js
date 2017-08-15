@@ -11,7 +11,7 @@ import { selectCurrentScheduleDate, selectCurrentSchedule } from 'containers/Sch
 import { setCurrentSchedule } from './../actions';
 import config from 'config/clients';
 import translate from 'helpers/translate';
-import { recent } from './../mock';
+import { recent } from 'config/mock';
 
 import s from './style';
 
