@@ -17,8 +17,8 @@ import {
 
 import NavigationBar from 'components/NavigationBar';
 import Preloader from 'components/Preloader';
-import UnitBar from 'components/Unit/Bar';
-import MainUnit from 'components/Unit/Main';
+import Preview from 'components/Preview';
+import HomeBox from 'components/HomeBox';
 import MessageBox from 'components/MessageBox';
 
 import translate from 'helpers/translate';
@@ -49,12 +49,12 @@ class Schedule extends React.Component {
     return (
       <View style={s.scene}>
         {isLoading && <Preloader />}
-        <UnitBar
+        <Preview
           items={7}
           calendar={calendar}
           onSelect={this._handleDateChange}
         />
-        <MainUnit
+        <HomeBox
           data={currentSchedule}
           onPress={() => Actions.scheduleForm()}
         />

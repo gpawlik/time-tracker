@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableHighlight, View } from 'react-native';
 
-import Circle from 'components/Unit/Circle';
+import Circle from 'components/Preview/Circle';
 import { isFromPast, isWeekDay } from 'helpers/date';
 
 import s from './style';

@@ -9,7 +9,7 @@ import Icons from 'components/Icons';
 import s from './style';
 import animate from './animation';
 
-class MainUnit extends Component {
+class HomeBox extends Component {
   constructor(props) {
     super(props);
 
@@ -79,4 +79,4 @@ class MainUnit extends Component {
   }
 }
 
-export default MainUnit;
+export default HomeBox;

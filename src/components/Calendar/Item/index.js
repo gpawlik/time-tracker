@@ -3,7 +3,7 @@ import { Animated, StyleSheet, Text, TouchableHighlight, View } from 'react-nati
 import { Actions } from 'react-native-router-flux';
 import { isEqual } from 'lodash';
 
-import Circle from 'components/Unit/Circle';
+import Circle from 'components/Preview/Circle';
 import Icons from 'components/Icons';
 
 import translate from 'helpers/translate';

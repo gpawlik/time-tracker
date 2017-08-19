@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import moment from 'moment';
 
-import UnitItem from './../Item';
+import Item from 'components/Preview/Item';
 
 import s from './style';
 
@@ -14,7 +14,7 @@ export default ({ calendar, items = 7, onSelect }) => {
         const itemEvents = calendar[itemDate.year()][itemDate.month() + 1][itemDate.week()][itemDate.day()].events;
 
         return (
-          <UnitItem
+          <Item
             itemEvents={itemEvents}
             onSelect={() => onSelect(itemDate)}
             date={itemDate}

@@ -27,7 +27,7 @@
     "newline-after-var": [1, "always"],
     "no-lonely-if": 1,
     "space-infix-ops": 1,
-    "no-negated-condition": 1,
+    "no-negated-condition": 0,
     "no-multiple-empty-lines": [1, {"max": 2}],
     "space-before-function-paren": [1, { "anonymous": "always", "named": "never" }],
     "no-inline-comments": 1,
