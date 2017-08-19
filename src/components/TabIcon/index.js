@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, View } from 'react-native';
-import { HomeIcon, CalendarIcon, ReportIcon } from 'components/Icons';
+import Icons from 'components/Icons';
 
 import s from './style';
 
@@ -12,14 +12,14 @@ const TabIcon = ({ iconType, title, tintColor }) => {
 
   switch(iconType) {
     case 'home':
-      Handler = HomeIcon;
+      Handler = Icons.Home;
       break;
     case 'calendar':
-      Handler = CalendarIcon;
+      Handler = Icons.Calendar;
       break;
     case 'report':
     default:
-      Handler = ReportIcon;
+      Handler = Icons.Report;
   }
 
   return (

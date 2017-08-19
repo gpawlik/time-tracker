@@ -4,7 +4,7 @@ import Svg, { Path } from 'react-native-svg';
 
 import { DARK_GRAY, LIGHT_GRAY } from 'config/colors';
 
-function ReportIcon({ width, height, style, isActive }) {
+function Report({ width, height, style, isActive }) {
   const iconColor = isActive ? DARK_GRAY : LIGHT_GRAY;
 
   return (
@@ -14,15 +14,15 @@ function ReportIcon({ width, height, style, isActive }) {
   );
 }
 
-ReportIcon.defaultProps = {
+Report.defaultProps = {
   width: 23,
   height: 23
 };
 
-ReportIcon.propTypes = {
+Report.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   style: PropTypes.number
 };
 
-export default ReportIcon;
+export default Report;

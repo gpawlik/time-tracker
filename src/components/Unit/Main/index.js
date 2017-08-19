@@ -4,7 +4,7 @@ import { Animated, Text, TouchableOpacity, View, StyleSheet } from 'react-native
 import translate from 'helpers/translate';
 import { isWeekDay } from 'helpers/date';
 
-import { HolidayIcon, TapIcon } from 'components/Icons';
+import Icons from 'components/Icons';
 
 import s from './style';
 import animate from './animation';
@@ -38,13 +38,13 @@ class MainUnit extends Component {
     );
     const actionBox = (
       <View style={s.emptyBox}>
-        <TapIcon />
+        <Icons.Tap />
         <Text style={s.actionText}>{translate('home.button.empty')}</Text>
       </View>
     );
     const holidayBox = (
       <View style={s.emptyBox}>
-        <HolidayIcon width={70} height={70} />
+        <Icons.Holiday width={70} height={70} />
         <Text style={s.holidayText}>{translate('home.button.weekend')}</Text>
       </View>
     );

@@ -1,11 +1,6 @@
 import React from 'react';
 
-import {
-  DangerIcon,
-  HolidayIcon,
-  Logo,
-  TickRoundedIcon
-} from 'components/Icons';
+import Icons from 'components/Icons';
 
 import s from './style';
 
@@ -14,18 +9,22 @@ export default ({ type }) => {
 
   switch (type) {
     case 'active':
-      Handler = TickRoundedIcon;
+      Handler = Icons.TickRounded;
       break;
     case 'warning':
-      Handler = DangerIcon;
+      Handler = Icons.Danger;
       break;
     case 'holiday':
-      Handler = HolidayIcon;
+      Handler = Icons.Holiday;
       break;
     default:
-      Handler = Logo;
+      Handler = Icons.Logo;
   }
   return (
-    <Handler style={s.icon} width={20} height={20} />
+    <Handler
+      style={s.icon}
+      width={20}
+      height={20}
+    />
   );
 };

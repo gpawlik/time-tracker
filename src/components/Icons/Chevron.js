@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Svg, { Path } from 'react-native-svg';
 
-function ChevronIcon({ width, height, style, direction }) {
+function Chevron({ width, height, style, direction }) {
   const computedStyle = direction === 'left' ? style : { ...style, ...{ transform: [{ rotate: '180deg'}] }};
 
   return (
@@ -12,16 +12,16 @@ function ChevronIcon({ width, height, style, direction }) {
   );
 }
 
-ChevronIcon.defaultProps = {
+Chevron.defaultProps = {
   width: 16,
   height: 16,
   direction: 'left'
 };
 
-ChevronIcon.propTypes = {
+Chevron.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   style: PropTypes.number
 };
 
-export default ChevronIcon;
+export default Chevron;

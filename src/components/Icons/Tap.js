@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Svg, { G, Path } from 'react-native-svg';
 
-function TapIcon({ width, height, color }) {
+function Tap({ width, height, color }) {
   return (
     <Svg width={width} height={height} viewBox="0 0 511.448 511.448">
       <G fill="#FFF">
@@ -15,16 +15,16 @@ function TapIcon({ width, height, color }) {
   );
 }
 
-TapIcon.defaultProps = {
+Tap.defaultProps = {
   width: 50,
   height: 50,
   color: '#999'
 };
 
-TapIcon.propTypes = {
+Tap.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   color: PropTypes.string
 };
 
-export default TapIcon;
+export default Tap;

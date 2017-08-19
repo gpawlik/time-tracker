@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-import {
-  CrossIcon,
-  Logo,
-  MenuIcon,
-  TickIcon
-} from 'components/Icons';
+import Icons from 'components/Icons';
 import s from './styles';
 
 class NavigationBar extends Component {
@@ -29,7 +24,7 @@ class NavigationBar extends Component {
 
     const logoBox = (
       <View style={s.logoBox}>
-        <Logo isActive />
+        <Icons.Logo isActive />
         <Text style={s.logoTitle}>TIME TRACKER</Text>
       </View>
     );
@@ -37,22 +32,22 @@ class NavigationBar extends Component {
       <TouchableOpacity style={s.backButton} onPress={() => {
         return onBack ? onBack() : Actions.pop();
       }}>
-        <CrossIcon />
+        <Icons.Cross />
       </TouchableOpacity>
     );
     const closeButton = (
       <TouchableOpacity style={s.rightButton} onPress={onClose}>
-        <CrossIcon />
+        <Icons.Cross />
       </TouchableOpacity>
     );
     const saveButton = (
       <TouchableOpacity style={s.rightButton} onPress={onSave}>
-        <TickIcon />
+        <Icons.Tick />
       </TouchableOpacity>
     );
     const menuButton = (
       <View style={s.rightButton}>
-        <MenuIcon style={{ marginTop: 0 }} />
+        <Icons.Menu style={{ marginTop: 0 }} />
       </View>
     );
 

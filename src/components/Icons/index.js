@@ -1,35 +1,33 @@
-import AvatarIcon from './AvatarIcon';
-import CalendarIcon from './CalendarIcon';
-import ChevronIcon from './ChevronIcon';
-import CogIcon from './CogIcon';
-import CrossIcon from './CrossIcon';
-import DangerIcon from './DangerIcon';
-import EditIcon from './EditIcon';
-import HolidayIcon from './HolidayIcon';
-import HomeIcon from './HomeIcon';
+import Avatar from './Avatar';
+import Calendar from './Calendar';
+import Chevron from './Chevron';
+import Cross from './Cross';
+import Danger from './Danger';
+import Edit from './Edit';
+import Holiday from './Holiday';
+import Home from './Home';
 import Logo from './Logo';
-import MenuIcon from './MenuIcon';
-import ReportIcon from './ReportIcon';
-import TapIcon from './TapIcon';
-import TickIcon from './TickIcon';
-import TickRoundedIcon from './TickRoundedIcon';
+import Menu from './Menu';
+import Report from './Report';
+import Tap from './Tap';
+import Tick from './Tick';
+import TickRounded from './TickRounded';
 import Warning from './Warning';
 
-export {
-  AvatarIcon,
-  CalendarIcon,
-  ChevronIcon,
-  CogIcon,
-  CrossIcon,
-  DangerIcon,
-  EditIcon,
-  HolidayIcon,
-  HomeIcon,
+export default {
+  Avatar,
+  Calendar,
+  Chevron,
+  Cross,
+  Danger,
+  Edit,
+  Holiday,
+  Home,
   Logo,
-  MenuIcon,
-  ReportIcon,
-  TapIcon,
-  TickIcon,
-  TickRoundedIcon,
+  Menu,
+  Report,
+  Tap,
+  Tick,
+  TickRounded,
   Warning
 };

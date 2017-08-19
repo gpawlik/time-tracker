@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Animated, Text, TouchableOpacity, View } from 'react-native';
 
-import Item from 'components/Report/Item';
+import Item from 'components/Calendar/Item';
 
 import translate from 'helpers/translate';
 

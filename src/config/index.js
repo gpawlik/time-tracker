@@ -4,14 +4,32 @@ export default {
     daysToMock: 161
   },
   clients: [{
-    label: 'Microsoft',
-    value: 'ms'
+    label: 'American Express',
+    value: 'am-express'
   }, {
-    label: 'Google',
-    value: 'google'
+    label: 'Bank of Scotland',
+    value: 'boi'
   }, {
-    label: 'Coca-Cola',
-    value: 'coca-cola'
+    label: 'British Airways',
+    value: 'ba'
+  }, {
+    label: 'Bosch',
+    value: 'bosch'
+  }, {
+    label: 'Booking.com',
+    value: 'booking-com'
+  }, {
+    label: 'JP Morgan',
+    value: 'jp-morgan'
+  }, {
+    label: 'Nescafe International',
+    value: 'nescafe'
+  }, {
+    label: 'New York Times',
+    value: 'nyt'
+  }, {
+    label: 'Netflix',
+    value: 'netflix'
   }, {
     label: 'Tesla International',
     value: 'tesla-intl'

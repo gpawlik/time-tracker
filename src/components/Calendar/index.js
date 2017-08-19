@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import Week from 'components/Calendar/Week';
+import CalendarBox from 'components/Calendar/Box';
 
 const ignoreMonths = yearData => {
   const weekObject = {};
@@ -24,7 +24,14 @@ export default ({ data, onSelect }) => {
   return (
     <View>
       {Object.keys(weeks).map(key => {
-        return <Week days={weeks[key]} weekIndex={key} onSelect={onSelect} key={key} />;
+        return (
+          <CalendarBox
+            days={weeks[key]}
+            weekIndex={key}
+            onSelect={onSelect}
+            key={key}
+          />
+        );
       })}
     </View>
   );

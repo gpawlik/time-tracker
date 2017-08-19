@@ -4,7 +4,7 @@ import Svg, { Path } from 'react-native-svg';
 
 import { DARK_GRAY, LIGHT_GRAY } from 'config/colors';
 
-function HomeIcon({ width, height, style, isActive }) {
+function Home({ width, height, style, isActive }) {
   const iconColor = isActive ? DARK_GRAY : LIGHT_GRAY;
 
   return (
@@ -14,15 +14,15 @@ function HomeIcon({ width, height, style, isActive }) {
   );
 }
 
-HomeIcon.defaultProps = {
+Home.defaultProps = {
   width: 25,
   height: 25
 };
 
-HomeIcon.propTypes = {
+Home.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   style: PropTypes.number
 };
 
-export default HomeIcon;
+export default Home;

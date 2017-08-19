@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import { Text, TextInput, View } from 'react-native';
 
 import Select from 'components/Form/Select';
-import RecentPick from 'components/Form/RecentPick';
+import RecentBox from 'components/Form/RecentBox';
 import NavigationBar from 'components/NavigationBar';
 
 import { selectCurrentScheduleDate, selectCurrentSchedule } from 'containers/Schedule/selectors';
 import { setCurrentSchedule } from './../actions';
-import config from 'config/clients';
+import config from 'config';
 import translate from 'helpers/translate';
 import { recent } from 'config/mock';
 
@@ -81,7 +81,7 @@ class ScheduleForm extends React.Component {
             autoCorrect={false}
           />
         </View>
-        <RecentPick values={recent} onSelect={this._handlePick} />
+        <RecentBox values={recent} onSelect={this._handlePick} />
       </View>
     );
   }

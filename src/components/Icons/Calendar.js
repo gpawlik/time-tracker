@@ -4,7 +4,7 @@ import Svg, { Path } from 'react-native-svg';
 
 import { DARK_GRAY, LIGHT_GRAY } from 'config/colors';
 
-function CalendarIcon({ width, height, style, isActive }) {
+function Calendar({ width, height, style, isActive }) {
   const iconColor = isActive ? DARK_GRAY : LIGHT_GRAY;
 
   return (
@@ -15,15 +15,15 @@ function CalendarIcon({ width, height, style, isActive }) {
   );
 }
 
-CalendarIcon.defaultProps = {
+Calendar.defaultProps = {
   width: 25,
   height: 25
 };
 
-CalendarIcon.propTypes = {
+Calendar.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   style: PropTypes.number
 };
 
-export default CalendarIcon;
+export default Calendar;

@@ -1,12 +1,12 @@
 import moment from 'moment';
 
 import { isWeekDay } from 'helpers/date';
-import config from 'config/clients';
+import config from 'config';
 
 export const recent = [{
-  key: 'conde-nast-intl',
-  name: 'Condé Nast International',
-  details: 'Tugboat Migration Project'
+  key: 'ba',
+  name: 'British Airways',
+  details: 'Flight Entertainment Platform'
 }, {
   key: 'netflix',
   name: 'Netflix',
@@ -16,9 +16,9 @@ export const recent = [{
   name: 'Tesla International',
   details: 'SpaceX Dashboard Design'
 }, {
-  key: 'mckinsey-sp',
-  name: 'McKinsey Co.',
-  details: 'Wave Project'
+  key: 'nyt',
+  name: 'New York Times',
+  details: 'Landing Pages Redesign'
 }];
 
 const getMock = days => {

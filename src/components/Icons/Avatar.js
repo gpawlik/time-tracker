@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Image, View } from 'react-native';
 
-function AvatarIcon({ width, height, token = '', style }) {
+function Avatar({ width, height, token = '', style }) {
   const imageStyle = {
     width: width * 4,
     height: height * 4,
@@ -21,15 +21,15 @@ function AvatarIcon({ width, height, token = '', style }) {
   );
 }
 
-AvatarIcon.defaultProps = {
+Avatar.defaultProps = {
   width: 25,
   height: 25
 };
 
-AvatarIcon.propTypes = {
+Avatar.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   style: PropTypes.number
 };
 
-export default AvatarIcon;
+export default Avatar;

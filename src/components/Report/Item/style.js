@@ -1,58 +1,37 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 
-import { RED } from 'config/colors';
+import { GRAY, RED, WHITE } from 'config/colors';
 
 export default StyleSheet.create({
-  item: {
-    height: 70,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee'
+  container: {
+    backgroundColor: '#fafafa',
+    width: Dimensions.get('window').width
   },
-  mainBox: {
-    padding: 25,
-    paddingRight: 85,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    position: 'absolute',
-    top: 0,
-    right: -60,
-    bottom: 0
+  dataBox: {
+    backgroundColor: WHITE,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: '#dedede',
+    margin: 15,
+    padding: 12,
+    height: 145
   },
-  date: {
-    fontWeight: '600',
-    fontSize: 16,
-    fontFamily: 'Dosis',
-    color: '#333'
-  },
-  itemBox: {
-    flexDirection: 'row'
-  },
-  itemInfo: {
-    marginLeft: 25
-  },
-  itemTitle: {
-    fontWeight: '600',
-    fontSize: 18,
-    fontFamily: 'Dosis',
-    color: '#333'
-  },
-  itemDetails: {
-    fontWeight: '100',
-    fontSize: 14,
-    fontFamily: 'Dosis',
-    color: '#777'
-  },
-  editBox: {
+  summary: {
     backgroundColor: RED,
-    width: 60,
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    bottom: 0
+    fontFamily: 'Dosis',
+    fontSize: 16,
+    fontWeight: '600',
+    padding: 15,
+    color: WHITE,
+    textAlign: 'center'
+  },
+  labelBox: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 5
+  },
+  label: {
+    fontFamily: 'Dosis',
+    color: GRAY,
+    fontWeight: '600'
   }
 });

@@ -1,17 +1,8 @@
 import { StyleSheet } from 'react-native';
 
-import { LIGHT_GRAY, DARK_GREEN, WHITE } from 'config/colors';
+import { LIGHT_GRAY } from 'config/colors';
 
 export default StyleSheet.create({
-  header: {
-    padding: 9,
-    backgroundColor: DARK_GREEN,
-    fontFamily: 'Dosis',
-    fontSize: 16,
-    fontWeight: '600',
-    color: WHITE,
-    textAlign: 'center'
-  },
   item: {
     padding: 15,
     paddingTop: 9,

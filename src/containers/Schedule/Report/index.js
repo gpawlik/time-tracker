@@ -7,7 +7,7 @@ import { selectCalendar } from 'containers/Schedule/selectors';
 
 import NavigationBar from 'components/NavigationBar';
 import BarChart from 'components/Report/Chart';
-import ReportBox from 'components/Report/ReportBox';
+import ReportBox from 'components/Report/Box';
 
 import s from '../../../style';
 

@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { List } from 'immutable';
 
-import config from 'config/clients';
+import config from 'config';
 
 export const generateCalendar = (initialDate = config.calendar.initialDate, endingDate = Date.now()) => {
   const startingWeek = moment(initialDate).week();

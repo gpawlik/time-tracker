@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, View } from 'react-native';
 
-import { DangerIcon, TickRoundedIcon } from 'components/Icons';
+import Icons from 'components/Icons';
 
 import s from './style';
 
@@ -11,13 +11,12 @@ const MessageBox = ({ status, text }) => {
 
   switch(status) {
     case 'valid':
-      Handler = TickRoundedIcon;
+      Handler = Icons.TickRounded;
       break;
     case 'invalid':
     default:
-      Handler = DangerIcon;
+      Handler = Icons.Danger;
   }
-
 
   return (
     <View style={s.container}>
