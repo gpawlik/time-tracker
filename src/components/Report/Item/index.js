@@ -15,14 +15,14 @@ export default ({ month = {} }) => {
       const week = month[key];
 
       Object.keys(week).map(day => {
-        if(week[day].events) {
-          week[day].events.map(event => {
-            if(!memo[event.name]) {
-              memo[event.name] = parseInt(event.fraction * 10, 10) / 10;
-            } else {
-              memo[event.name] += parseInt(event.fraction * 10, 10) / 10;
-            }
-          });
+        const event = week[day].event;
+
+        if(event) {
+          if(!memo[event.name]) {
+            memo[event.name] = parseInt(event.fraction * 10, 10) / 10;
+          } else {
+            memo[event.name] += parseInt(event.fraction * 10, 10) / 10;
+          }
         }
       });
 

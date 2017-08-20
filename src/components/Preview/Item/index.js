@@ -6,8 +6,8 @@ import { isFromPast, isWeekDay } from 'helpers/date';
 
 import s from './style';
 
-export default ({ itemEvents = [], date, onSelect }) => {
-  const isCircleActive = itemEvents[0] && itemEvents[0].hasOwnProperty('key');
+export default ({ event = {}, date, onSelect }) => {
+  const isCircleActive = event.hasOwnProperty('key');
   let type;
 
   if(isCircleActive) {

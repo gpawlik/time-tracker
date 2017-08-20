@@ -11,11 +11,11 @@ export default ({ calendar, items = 7, onSelect }) => {
     <View style={s.bar}>
       {Array(items).fill(1).map((item, key) => {
         const itemDate = moment().subtract(items - key - 1, 'days');
-        const itemEvents = calendar[itemDate.year()][itemDate.month() + 1][itemDate.week()][itemDate.day()].events;
+        const itemEvent = calendar[itemDate.year()][itemDate.month() + 1][itemDate.week()][itemDate.day()].event;
 
         return (
           <Item
-            itemEvents={itemEvents}
+            event={itemEvent}
             onSelect={() => onSelect(itemDate)}
             date={itemDate}
             key={key}

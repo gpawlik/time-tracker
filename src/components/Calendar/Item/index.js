@@ -29,7 +29,7 @@ export default class Item extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    return !isEqual(this.props.data.events, nextProps.data.events);
+    return !isEqual(this.props.data.event, nextProps.data.event);
   }
 
   _handleToggleEdit() {
@@ -55,13 +55,19 @@ export default class Item extends Component {
   }
 
   render() {
-    const { moment, events = [] } = this.props.data;
+    const { moment, event = {} } = this.props.data;
     const { itemPositionLeft, itemPositionRight } = this.state;
-    const isCircleActive = events[0] && events[0].hasOwnProperty('key');
+    const isCircleActive = event.hasOwnProperty('key');
     const boxAnimatedStyle = {
       left: itemPositionLeft,
       right: itemPositionRight
     };
+    const regularBox = (
+      <View style={s.itemInfo}>
+        {event.name && <Text style={s.itemTitle}>{event.name}</Text>}
+        {event.details && <Text style={s.itemDetails}>{event.details}</Text>}
+      </View>
+    );
     const holidayBox = (
       <View style={s.itemInfo}>
         <Text style={{ ...StyleSheet.flatten(s.itemTitle), color: LIGHT_GRAY }}>{translate('calendar.weekend')}</Text>
@@ -72,16 +78,20 @@ export default class Item extends Component {
         <Text style={{ ...StyleSheet.flatten(s.itemTitle), color: LIGHT_YELLOW }}>{translate('calendar.empty')}</Text>
       </View>
     );
-    let type;
+    let type, boxType;
 
     if(isCircleActive) {
       type = 'active';
+      boxType = regularBox;
     } else if (!isCircleActive && isFromPast(moment) && isWeekDay(moment)) {
       type = 'warning';
+      boxType = warningBox;
     } else if (!isWeekDay(moment)) {
       type = 'holiday';
+      boxType = holidayBox;
     } else {
       type = 'inactive';
+      boxType = regularBox;
     }
 
     return (
@@ -95,16 +105,7 @@ export default class Item extends Component {
         }}>
           <View style={s.itemBox}>
             <Circle type={type} />
-            {events.map((event, index) => {
-              return (
-                <View style={s.itemInfo} key={index}>
-                  {event.name && <Text style={s.itemTitle}>{event.name}</Text>}
-                  {event.details && <Text style={s.itemDetails}>{event.details}</Text>}
-                </View>
-              );
-            })}
-            {type === 'warning' && warningBox}
-            {type === 'holiday' && holidayBox}
+            {boxType}
           </View>
           <Text style={s.date}>{moment && moment.format('MMM D').toUpperCase()}</Text>
           <TouchableHighlight

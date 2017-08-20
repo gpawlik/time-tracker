@@ -11,4 +11,4 @@ react-native run-ios
 
 ## Demo
 
-<img align="right" src="demo.gif" title="Tracking App Demo" />
+<img src="demo.gif" title="Tracking App Demo" />

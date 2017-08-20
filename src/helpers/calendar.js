@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { List } from 'immutable';
+import { List, Map } from 'immutable';
 
 import config from 'config';
 
@@ -32,8 +32,8 @@ export const fillCalendar = (calendar, events) => {
       moment(date).month() + 1,
       moment(date).week(),
       moment(date).day(),
-      'events'
-    ], new List([payload]));
+      'event'
+    ], new Map(payload));
   }, calendar);
 };
 
@@ -46,6 +46,6 @@ export const insertIntoCalendar = (calendar, event) => {
     moment(date).month() + 1,
     moment(date).week(),
     moment(date).day(),
-    'events'
-  ], new List([payload]));
+    'event'
+  ], new Map(payload));
 };
