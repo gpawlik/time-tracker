@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Svg, { Path } from 'react-native-svg';
 
-import { LIGHT_GREEN } from 'config/colors';
+import { MOUNTAIN_MEADOW } from 'config/colors';
 
 function TickRounded({ width, height, color, style }) {
   return (
@@ -15,7 +15,7 @@ function TickRounded({ width, height, color, style }) {
 TickRounded.defaultProps = {
   width: 30,
   height: 30,
-  color: LIGHT_GREEN
+  color: MOUNTAIN_MEADOW
 };
 
 TickRounded.propTypes = {

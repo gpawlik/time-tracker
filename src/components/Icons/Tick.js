@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Svg, { Path } from 'react-native-svg';
 
-import { DARK_GRAY } from 'config/colors';
+import { DOVE_GRAY } from 'config/colors';
 
 function Tick({ width, height, color, style }) {
   return (
@@ -15,7 +15,7 @@ function Tick({ width, height, color, style }) {
 Tick.defaultProps = {
   width: 22,
   height: 22,
-  color: DARK_GRAY
+  color: DOVE_GRAY
 };
 
 Tick.propTypes = {

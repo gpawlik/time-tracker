@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { DARK_GRAY, LIGHT_GRAY } from 'config/colors';
+import { DOVE_GRAY, SILVER } from 'config/colors';
 
 const icon = {
   fontSize: 14,
@@ -16,10 +16,10 @@ export default StyleSheet.create({
   },
   icon: {
     ...icon,
-    color: LIGHT_GRAY
+    color: SILVER
   },
   iconSelected: {
     ...icon,
-    color: DARK_GRAY
+    color: DOVE_GRAY
   }
 });

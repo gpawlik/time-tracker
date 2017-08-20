@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Svg, { Path } from 'react-native-svg';
 
-import { DARK_GRAY } from 'config/colors';
+import { DOVE_GRAY } from 'config/colors';
 
 function Cross({ width, height, color }) {
   return (
@@ -15,7 +15,7 @@ function Cross({ width, height, color }) {
 Cross.defaultProps = {
   width: 16,
   height: 16,
-  color: DARK_GRAY
+  color: DOVE_GRAY
 };
 
 Cross.propTypes = {

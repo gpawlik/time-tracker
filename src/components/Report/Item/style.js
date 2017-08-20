@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet } from 'react-native';
 
-import { GRAY, RED, WHITE } from 'config/colors';
+import { DUSTY_GRAY, CINNABAR, WHITE } from 'config/colors';
 
 export default StyleSheet.create({
   container: {
@@ -16,7 +16,7 @@ export default StyleSheet.create({
     height: 145
   },
   summary: {
-    backgroundColor: RED,
+    backgroundColor: CINNABAR,
     fontFamily: 'Dosis',
     fontSize: 16,
     fontWeight: '600',
@@ -31,7 +31,7 @@ export default StyleSheet.create({
   },
   label: {
     fontFamily: 'Dosis',
-    color: GRAY,
+    color: DUSTY_GRAY,
     fontWeight: '600'
   }
 });

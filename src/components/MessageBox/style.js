@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { DARK_GRAY, WHITE } from 'config/colors';
+import { DOVE_GRAY, WHITE } from 'config/colors';
 
 export default StyleSheet.create({
   container: {
@@ -19,7 +19,7 @@ export default StyleSheet.create({
     fontSize: 16,
     fontFamily: 'Dosis',
     fontWeight: '600',
-    color: DARK_GRAY,
+    color: DOVE_GRAY,
     marginLeft: 10
   }
 });

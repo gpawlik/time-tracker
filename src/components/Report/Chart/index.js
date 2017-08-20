@@ -5,34 +5,25 @@ import { scaleBand, scaleLinear } from 'd3-scale';
 import { ticks } from 'd3-array';
 import { line } from 'd3-shape';
 
+import { report as data } from 'config/mock';
 import {
-  LIGHT_GRAY,
-  LIGHT_GREEN,
-  DARK_GREEN
+  SILVER,
+  MOUNTAIN_MEADOW,
+  VALLEY_GREEN
 } from 'config/colors';
 
 import s from './style';
 
-// create the barchart (http://bl.ocks.org/mbostock/3885304)
-const data = [
-  {frequency: 23, letter: 'Mar'},
-  {frequency: 25, letter: 'Apr'},
-  {frequency: 23, letter: 'May'},
-  {frequency: 20, letter: 'Jun'},
-  {frequency: 22, letter: 'Jul'},
-  {frequency: 26, letter: 'Aug'}
-];
-
 class BarChart extends Component {
   state = {
-    barColour: data.map(() => LIGHT_GREEN)
+    barColour: data.map(() => MOUNTAIN_MEADOW)
   }
 
   toggleHighlight(i) {
     this.setState({
       barColour: [
         ...this.state.barColour.slice(0, i),
-        this.state.barColour[i] === LIGHT_GREEN ? DARK_GREEN : LIGHT_GREEN,
+        this.state.barColour[i] === MOUNTAIN_MEADOW ? VALLEY_GREEN : MOUNTAIN_MEADOW,
         ...this.state.barColour.slice(i + 1)
       ]
     });
@@ -47,7 +38,6 @@ class BarChart extends Component {
       .rangeRound([0, width])
       .padding(0.3)
       .domain(data.map(d => d.letter));
-    //const maxFrequency = max(data, d => d.frequency);
     const maxFrequency = 31;
     const y = scaleLinear()
       .rangeRound([height, 0])
@@ -77,23 +67,23 @@ class BarChart extends Component {
           <G translate={margin.left + ',' + margin.top}>
             <G translate={'0,' + height}>
               <G key={-1}>
-                <Path stroke={LIGHT_GRAY} strokeWidth="2" d={bottomAxisD} key="-1" strokeLinecap="round"/>
+                <Path stroke={SILVER} strokeWidth="2" d={bottomAxisD} key="-1" strokeLinecap="round"/>
                 {
                   data.map((d, i) => (
                     <G key={i + 1} translate={x(d.letter) + labelDx + ',0'}>
-                      <Line strokeWidth="2" stroke={LIGHT_GRAY} y2={notch} strokeLinecap="round"/>
-                      <Text fontFamily="Dosis" fontWeight="600" fill={LIGHT_GRAY} fontSize="13" x={-10} y={labelDistance - 5}>{d.letter}</Text>
+                      <Line strokeWidth="2" stroke={SILVER} y2={notch} strokeLinecap="round"/>
+                      <Text fontFamily="Dosis" fontWeight="600" fill={SILVER} fontSize="13" x={-10} y={labelDistance - 5}>{d.letter}</Text>
                     </G>
                   ))
                 }
               </G>
               <G key={-2}>
-                <Path stroke={LIGHT_GRAY} strokeWidth="2" d={leftAxisD} key="-1" strokeLinecap="round"/>
+                <Path stroke={SILVER} strokeWidth="2" d={leftAxisD} key="-1" strokeLinecap="round"/>
                 {
                   leftAxis.map((d, i) => (
                     <G key={i + 1} translate={'8,' + (y(d) - height)}>
-                      <Line strokeWidth="2" stroke={LIGHT_GRAY} x1={notch} x2={labelDistance} strokeLinecap="round"/>
-                      <Text fontFamily="Dosis" fontWeight="600" fill={LIGHT_GRAY} fontSize="13" x={-labelDistance - 5} y={-notch - 7}>{d}</Text>
+                      <Line strokeWidth="2" stroke={SILVER} x1={notch} x2={labelDistance} strokeLinecap="round"/>
+                      <Text fontFamily="Dosis" fontWeight="600" fill={SILVER} fontSize="13" x={-labelDistance - 5} y={-notch - 7}>{d}</Text>
                     </G>
                   ))
                 }

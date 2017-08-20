@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { LIGHT_GRAY, LIGHT_GREEN, LIGHT_YELLOW } from 'config/colors';
+import { SILVER, MOUNTAIN_MEADOW, BUTTERCUP } from 'config/colors';
 
 const baseDate = {
   marginTop: 5,
@@ -17,18 +17,18 @@ export default StyleSheet.create({
   },
   activeDate: {
     ...baseDate,
-    color: LIGHT_GREEN
+    color: MOUNTAIN_MEADOW
   },
   holidayDate: {
     ...baseDate,
-    color: LIGHT_GRAY
+    color: SILVER
   },
   inactiveDate: {
     ...baseDate,
-    color: LIGHT_GRAY
+    color: SILVER
   },
   warningDate: {
     ...baseDate,
-    color: LIGHT_YELLOW
+    color: BUTTERCUP
   }
 });

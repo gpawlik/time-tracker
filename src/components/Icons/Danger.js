@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Svg, { Path } from 'react-native-svg';
 
-import { LIGHT_YELLOW, WHITE } from 'config/colors';
+import { BUTTERCUP, WHITE } from 'config/colors';
 
 function Danger({ width, height, color, style }) {
   return (
@@ -16,7 +16,7 @@ function Danger({ width, height, color, style }) {
 Danger.defaultProps = {
   width: 30,
   height: 30,
-  color: LIGHT_YELLOW
+  color: BUTTERCUP
 };
 
 Danger.propTypes = {

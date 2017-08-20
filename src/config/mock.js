@@ -44,6 +44,13 @@ const getMock = days => {
   }, []);
 };
 
+export const report = Array(6).fill(0).map((item, idx) => {
+  return {
+    frequency: Math.floor(Math.random() * 5 + 20),
+    letter: moment().month(idx + 2).format('MMM')
+  };
+});
+
 export default {
   data: getMock(config.calendar.daysToMock)
 };

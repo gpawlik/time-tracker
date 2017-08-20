@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Svg, { Path } from 'react-native-svg';
 
-import { DARK_GRAY, LIGHT_GRAY } from 'config/colors';
+import { DOVE_GRAY, SILVER } from 'config/colors';
 
 function Home({ width, height, style, isActive }) {
-  const iconColor = isActive ? DARK_GRAY : LIGHT_GRAY;
+  const iconColor = isActive ? DOVE_GRAY : SILVER;
 
   return (
     <Svg width={width} height={height} style={style} viewBox="0 0 295.82 295.82">

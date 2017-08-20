@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Svg, { Circle, G, Path } from 'react-native-svg';
 
-import { LIGHT_GRAY } from 'config/colors';
+import { SILVER } from 'config/colors';
 
 function Logo({ width, height, style, isActive }) {
-  const lightBackground = isActive ? '#D3D7DA' : LIGHT_GRAY;
-  const darkBackground = isActive ? '#193651' : LIGHT_GRAY;
-  const primaryActive = isActive ? '#4FBF9F' : LIGHT_GRAY;
-  const secondaryyActive = isActive ? '#2EA2DB' : LIGHT_GRAY;
+  const lightBackground = isActive ? '#D3D7DA' : SILVER;
+  const darkBackground = isActive ? '#193651' : SILVER;
+  const primaryActive = isActive ? '#4FBF9F' : SILVER;
+  const secondaryyActive = isActive ? '#2EA2DB' : SILVER;
 
   return (
     <Svg width={width} height={height} style={style} viewBox="0 0 398.285 398.285">

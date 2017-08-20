@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { WHITE, DARK_GREEN, LIGHT_GREEN, LIGHT_GRAY, DARK_GRAY } from 'config/colors';
+import { WHITE, VALLEY_GREEN, MOUNTAIN_MEADOW, SILVER, DOVE_GRAY } from 'config/colors';
 
 const basicUnit = {
   borderRadius: 280,
@@ -14,11 +14,11 @@ const basicUnit = {
   borderWidth: 8
 };
 const activeUnit = {
-  borderColor: LIGHT_GREEN,
+  borderColor: MOUNTAIN_MEADOW,
   backgroundColor: WHITE
 };
 const inActiveUnit = {
-  borderColor: LIGHT_GRAY,
+  borderColor: SILVER,
   backgroundColor: WHITE
 };
 
@@ -47,7 +47,7 @@ export default StyleSheet.create({
     textAlign: 'center'
   },
   details: {
-    color: DARK_GRAY,
+    color: DOVE_GRAY,
     fontWeight: '300',
     fontFamily: 'Dosis',
     fontSize: 20,
@@ -59,7 +59,7 @@ export default StyleSheet.create({
     transform: [{ translate: [0, -15] }]
   },
   actionText: {
-    color: DARK_GRAY,
+    color: DOVE_GRAY,
     fontWeight: '600',
     fontFamily: 'Dosis',
     fontSize: 20,
@@ -67,7 +67,7 @@ export default StyleSheet.create({
     marginTop: 10
   },
   holidayText: {
-    color: DARK_GRAY,
+    color: DOVE_GRAY,
     fontWeight: '600',
     fontFamily: 'Dosis',
     fontSize: 24,
@@ -86,7 +86,7 @@ export default StyleSheet.create({
     transform: [{ translate: [83, 38] }]
   },
   unitDate: {
-    color: LIGHT_GRAY,
+    color: SILVER,
     fontWeight: '600',
     fontFamily: 'Dosis',
     fontSize: 16,

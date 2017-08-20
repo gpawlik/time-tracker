@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { RED, LIGHT_GRAY } from 'config/colors';
+import { CINNABAR, SILVER } from 'config/colors';
 
 const arrowStyle = {
   padding: 12,
@@ -15,8 +15,8 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderTopColor: LIGHT_GRAY,
-    borderBottomColor: LIGHT_GRAY,
+    borderTopColor: SILVER,
+    borderBottomColor: SILVER,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderBottomWidth: StyleSheet.hairlineWidth
   },
@@ -26,12 +26,12 @@ export default StyleSheet.create({
   },
   arrowLeft: {
     ...arrowStyle,
-    borderRightColor: LIGHT_GRAY,
+    borderRightColor: SILVER,
     borderRightWidth: StyleSheet.hairlineWidth
   },
   arrowRight: {
     ...arrowStyle,
-    borderLeftColor: LIGHT_GRAY,
+    borderLeftColor: SILVER,
     borderLeftWidth: StyleSheet.hairlineWidth
   }
 });

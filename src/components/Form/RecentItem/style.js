@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { LIGHT_GRAY } from 'config/colors';
+import { SILVER } from 'config/colors';
 
 export default StyleSheet.create({
   item: {
@@ -8,7 +8,7 @@ export default StyleSheet.create({
     paddingTop: 9,
     paddingBottom: 9,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: LIGHT_GRAY
+    borderBottomColor: SILVER
   },
   itemBox: {
     flexDirection: 'row',

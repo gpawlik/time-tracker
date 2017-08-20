@@ -12,7 +12,7 @@ import { isFromPast, isWeekDay } from 'helpers/date';
 import s from './style';
 import animate from './animation';
 
-import { LIGHT_GRAY, LIGHT_YELLOW } from 'config/colors';
+import { SILVER, BUTTERCUP } from 'config/colors';
 
 export default class Item extends Component {
   constructor(props) {
@@ -70,12 +70,12 @@ export default class Item extends Component {
     );
     const holidayBox = (
       <View style={s.itemInfo}>
-        <Text style={{ ...StyleSheet.flatten(s.itemTitle), color: LIGHT_GRAY }}>{translate('calendar.weekend')}</Text>
+        <Text style={{ ...StyleSheet.flatten(s.itemTitle), color: SILVER }}>{translate('calendar.weekend')}</Text>
       </View>
     );
     const warningBox = (
       <View style={s.itemInfo}>
-        <Text style={{ ...StyleSheet.flatten(s.itemTitle), color: LIGHT_YELLOW }}>{translate('calendar.empty')}</Text>
+        <Text style={{ ...StyleSheet.flatten(s.itemTitle), color: BUTTERCUP }}>{translate('calendar.empty')}</Text>
       </View>
     );
     let type, boxType;

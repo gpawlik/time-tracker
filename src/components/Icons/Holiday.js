@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Svg, { Path } from 'react-native-svg';
 
-import { LIGHT_GRAY } from 'config/colors';
+import { SILVER } from 'config/colors';
 
 function Holiday({ width, height, style, color }) {
   return (
@@ -15,7 +15,7 @@ function Holiday({ width, height, style, color }) {
 Holiday.defaultProps = {
   width: 25,
   height: 25,
-  color: LIGHT_GRAY
+  color: SILVER
 };
 
 Holiday.propTypes = {

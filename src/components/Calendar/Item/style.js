@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { RED } from 'config/colors';
+import { CINNABAR } from 'config/colors';
 
 export default StyleSheet.create({
   item: {
@@ -46,7 +46,7 @@ export default StyleSheet.create({
     color: '#777'
   },
   editBox: {
-    backgroundColor: RED,
+    backgroundColor: CINNABAR,
     width: 60,
     alignItems: 'center',
     justifyContent: 'center',

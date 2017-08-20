@@ -1,18 +1,18 @@
 import { StyleSheet } from 'react-native';
 
-import { DARK_GREEN, LIGHT_GREEN } from 'config/colors';
+import { VALLEY_GREEN, MOUNTAIN_MEADOW } from 'config/colors';
 
 export default StyleSheet.create({
   container: {
     backgroundColor: '#fff'
   },
   label: {
-    backgroundColor: DARK_GREEN,
+    backgroundColor: VALLEY_GREEN,
     padding: 20,
     paddingTop: 12,
     paddingBottom: 12,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: LIGHT_GREEN
+    borderBottomColor: MOUNTAIN_MEADOW
   },
   labelText: {
     color: '#fff',
